@@ -19,15 +19,15 @@ export const sliderSettings = {
       slidesPerView: 1,
     },
     600: {
-      slidesPerView: 2,
+      slidesPerView: 1,
     },
 
     750: {
-      slidesPerView: 2,
+      slidesPerView: 1,
     },
 
     1100: {
-      slidesPerView: 2,
+      slidesPerView: 1,
     },
   },
 };
@@ -48,10 +48,10 @@ const Reviews = () => {
 
   return (
     <div className={`w-full ${theme === "light" ? 'bg-white text-black ' : 'bg-dark'}`} >
-      <div className="w-full px-4 md:8 lg:16 2xl:40 py-16">
+      <div className="w-full px-4 md:8 lg:px-16 py-16">
         <div className="horizontal-padding pb-10">
           <motion.h1
-            className="section-heading"
+            className=" w-full flex items-center justify-center lg:text-6xl font-medium"
             ref={ref}
             style={{
               transform: inView ? "translateY(0)" : "translateY(100px)",
@@ -59,7 +59,7 @@ const Reviews = () => {
               transition: "all 0.9s cubic-bezier(0.17, 0.55, 0.55, 1)",
             }}
           >
-            What Our Patients <br /> Say About Us
+            What Our Patients Say About Us
           </motion.h1>
         </div>
         <Swiper
@@ -85,14 +85,14 @@ const Reviews = () => {
             }}
           >
             <SwiperSlide>
-              <div className={` rounded-3xl w-full  gap-4 flex flex-col items-center lg:items-start lg:flex-row p-6 lg:p-8 xl:p-10 ${theme === "light" ? 'bg-white text-black ' : 'bg-[#2d2d2d] text-white'} `}>
+              <div className={` rounded-3xl w-full  gap-4 flex flex-col items-center justify-center  p-6 lg:p-8 xl:p-10 ${theme === "light" ? 'bg-white text-black ' : 'bg-[#2d2d2d] text-white'} `}>
                 <img
                   src="/team-member02.webp"
                   alt=""
-                  className="w-16 h-16 rounded-full"
+                  className="w-28 h-28 rounded-full"
                 />
-                <div className="w-full flex flex-col items-center lg:items-start gap-2 lg:w-[80%] text-center lg:text-left ">
-                  <p className="text-gray-400 font-normal text-[16px] lg:text-[18px]">
+                <div className="w-full flex flex-col items-center  gap-2 lg:w-[80%] text-center lg:text-left ">
+                  <p className="text-gray-400 text-center font-normal text-[16px] lg:text-[22px]">
                     I can’t express enough gratitude for the peace of mind the
                     ‘Breast Cancer Check’ device has brought into my life. Its
                     accuracy and user-friendly design make it an indispensable
@@ -110,14 +110,14 @@ const Reviews = () => {
               </div>
             </SwiperSlide>
             <SwiperSlide>
-              <div className={` rounded-3xl w-full  gap-4 flex flex-col items-center lg:items-start lg:flex-row p-6 lg:p-8 xl:p-10 ${theme === "light" ? 'bg-white text-black ' : 'bg-[#2d2d2d] text-white'} `}>
+              <div className={` rounded-3xl w-full  gap-4 flex flex-col items-center  p-6 lg:p-8 xl:p-10 ${theme === "light" ? 'bg-white text-black ' : 'bg-[#2d2d2d] text-white'} `}>
                 <img
                   src="/team-member02.webp"
                   alt=""
-                  className="w-16 h-16 rounded-full"
+                  className="w-28 h-28 rounded-full"
                 />
-                <div className="w-full flex flex-col items-center lg:items-start gap-2 lg:w-[80%] text-center lg:text-left ">
-                  <p className="text-gray-400 font-normal text-[16px] lg:text-[18px]">
+                <div className="w-full flex flex-col items-center  gap-2 lg:w-[80%] text-center lg:text-left ">
+                  <p className="text-gray-400 font-normal text-center text-[16px] lg:text-[22px]">
                     I can’t express enough gratitude for the peace of mind the
                     ‘Breast Cancer Check’ device has brought into my life. Its
                     accuracy and user-friendly design make it an indispensable
@@ -135,14 +135,14 @@ const Reviews = () => {
               </div>
             </SwiperSlide>
             <SwiperSlide>
-              <div className={` rounded-3xl w-full  gap-4 flex flex-col items-center lg:items-start lg:flex-row p-6 lg:p-8 xl:p-10 ${theme === "light" ? 'bg-white text-black ' : 'bg-[#2d2d2d] text-white'} `}>
+              <div className={` rounded-3xl w-full  gap-4 flex flex-col items-center   p-6 lg:p-8 xl:p-10 ${theme === "light" ? 'bg-white text-black ' : 'bg-[#2d2d2d] text-white'} `}>
                 <img
                   src="/team-member02.webp"
                   alt=""
-                  className="w-16 h-16 rounded-full"
+                  className="w-28 h-28 rounded-full"
                 />
-                <div className="w-full flex flex-col items-center lg:items-start gap-2 lg:w-[80%] text-center lg:text-left ">
-                  <p className="text-gray-400 font-normal text-[16px] lg:text-[18px]">
+                <div className="w-full flex flex-col items-center  gap-2 lg:w-[80%] text-center lg:text-left ">
+                  <p className="text-gray-400 font-normal text-center text-[16px] lg:text-[22px]">
                     I can’t express enough gratitude for the peace of mind the
                     ‘Breast Cancer Check’ device has brought into my life. Its
                     accuracy and user-friendly design make it an indispensable
@@ -160,14 +160,14 @@ const Reviews = () => {
               </div>
             </SwiperSlide>
             <SwiperSlide>
-              <div className={` rounded-3xl w-full  gap-4 flex flex-col items-center lg:items-start lg:flex-row p-6 lg:p-8 xl:p-10 ${theme === "light" ? 'bg-white text-black ' : 'bg-[#2d2d2d] text-white'} `}>
+              <div className={` rounded-3xl w-full  gap-4 flex flex-col items-center   p-6 lg:p-8 xl:p-10 ${theme === "light" ? 'bg-white text-black ' : 'bg-[#2d2d2d] text-white'} `}>
                 <img
                   src="/team-member02.webp"
                   alt=""
-                  className="w-16 h-16 rounded-full"
+                  className="w-28 h-28 rounded-full"
                 />
-                <div className="w-full flex flex-col items-center lg:items-start gap-2 lg:w-[80%] text-center lg:text-left ">
-                  <p className="text-gray-400 font-normal text-[16px] lg:text-[18px]">
+                <div className="w-full flex flex-col items-center  gap-2 lg:w-[80%] text-center lg:text-left ">
+                  <p className="text-gray-400 font-normal text-center text-[16px] lg:text-[22px]">
                     I can’t express enough gratitude for the peace of mind the
                     ‘Breast Cancer Check’ device has brought into my life. Its
                     accuracy and user-friendly design make it an indispensable

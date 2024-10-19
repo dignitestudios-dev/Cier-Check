@@ -5,9 +5,10 @@ import { Link } from "react-router-dom";
 import ThemeTogglerButton from "./ThemeTogglerButton";
 import { IoClose } from "react-icons/io5";
 import { ThemeContext } from "../context/ThemeContext";
+import { FaCartShopping } from "react-icons/fa6";
 
 const Navbar = () => {
-  const { theme } = useContext(ThemeContext)
+  const { theme, setDrawOpen, isDrawOpen, CartItemLeng, setOpenDrawer, openDrawer, products } = useContext(ThemeContext)
   const [open, setOpen] = useState(false);
   const handlenav = () => {
     setOpen(!open);
@@ -36,7 +37,7 @@ const Navbar = () => {
   }, []);
 
   return (
-    <div className={`w-full fixed left-0 top-0 z-50 transition-all duration-200 ${isScrolled ? `${theme === "light" ? 'bg-white text-black shadow-lg' : ' shadow-2xl bg-black '}` : "bg-transparent"}`}>
+    <div className={`w-full  transition-all duration-200 ${theme === "light" ? 'bg-white text-black shadow-lg' : 'bg-black'}`}>
       <div className={`relative w-full h-20 md:h-24 lg:h-28 bg-black lg:bg-transparent flex items-center z-50 justify-between horizontal-padding ${theme === 'light' ? 'bg-white' : 'bg-black'}`}>
         <div className="">
           <Link to={"/"}>
@@ -44,24 +45,27 @@ const Navbar = () => {
           </Link>
         </div>
         <div className="navbar ">
-          <Link to={"/"} className={`text-size  hover:text-pink-600 ${isScrolled ? `${theme === "light" ? ' text-black' : ' text-white'}` : "text-white"}`}>
+          <Link to={"/"} className={`text-size  hover:text-pink-600 ${theme === "light" ? ' text-black' : ' text-white'}`}>
             Home
+          </Link>
+          <Link to={"/product"} className={`text-size  hover:text-pink-600 ${theme === "light" ? ' text-black' : ' text-white'}`}>
+            Shop
           </Link>
           <Link
             to={"/breast-cancer"}
-            className={`text-size  hover:text-pink-600 ${isScrolled ? `${theme === "light" ? ' text-black' : ' text-white'}` : "text-white"}`}
+            className={`text-size  hover:text-pink-600 ${theme === "light" ? ' text-black' : ' text-white'}`}
           >
             Breast Cancer Awareness
           </Link>
           <Link
             to={"/cancer-glossery"}
-            className={`text-size  hover:text-pink-600 ${isScrolled ? `${theme === "light" ? ' text-black' : ' text-white'}` : "text-white"}`}
+            className={`text-size  hover:text-pink-600${theme === "light" ? ' text-black' : ' text-white'}`}
           >
             Cancer Glossary
           </Link>
           <Link
             to={"/contact-us"}
-            className={`text-size  hover:text-pink-600 ${isScrolled ? `${theme === "light" ? ' text-black' : ' text-white'}` : "text-white"}`}
+            className={`text-size  hover:text-pink-600${theme === "light" ? ' text-black' : ' text-white'}`}
           >
             Contact Us
           </Link>
@@ -72,6 +76,14 @@ const Navbar = () => {
             Start Questionnaire
           </Link>
           <ThemeTogglerButton />
+
+          <div class='text-center flex justify-center gap-6'>
+            <button type='button' onClick={() => setOpenDrawer(!openDrawer)} class='relative inline-flex items-center p-3 text-sm font-medium text-center text-white bg-pink-600 rounded-lg '>
+              <FaCartShopping size={20} />
+              <div class='absolute inline-flex items-center justify-center py-0.5 px-1.5 text-xs font-normal text-white bg-red-500 border-2 border-white rounded-full -top-3 -left-3'>{products.length}</div>
+            </button>
+          </div>
+
         </div>
 
         <div className="lg:hidden ">
@@ -85,7 +97,8 @@ const Navbar = () => {
 
       </div>
 
-      <div className={`w-full h-screen bg-transparent absolute inset-0 z-50 ${open ? 'translate-x-0' : 'translate-x-full'} transition-all duration-500`}>
+
+      <div className={`w-full h-screen bg-transparent  absolute inset-0 z-50 ${open ? 'translate-x-0' : 'translate-x-full'} transition-all duration-500`}>
         <div className={`h-full ${theme === 'light' ? 'bg-white' : 'bg-dark'} w-[70%] float-end p-4`}>
           <div className="w-full flex items-center justify-between">
             <button
@@ -128,6 +141,8 @@ const Navbar = () => {
           </div>
         </div>
       </div>
+
+
     </div>
   );
 };

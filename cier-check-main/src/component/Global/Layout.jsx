@@ -5,11 +5,11 @@ import Drawer from '../Product/Drawer'
 
 const Layout = ({ pages }) => {
     return (
-        <div className='overflow-hidden'>
-            {/* <Navbar /> */}
+        <div className='overflow-hidden relative'>
+            <Navbar />
             {pages}
             <Footer />
-            <Drawer/>
+            <Drawer />
         </div>
     )
 }

@@ -116,7 +116,7 @@
 }
 
 .btn {
-  @apply px-6 md:px-8 py-4 rounded-xl text-white;
+  @apply px-5 md:px-8 py-2 lg:py-4 rounded-xl text-white;
   background: linear-gradient(rgb(253, 100, 62), rgb(253, 53, 86));
 }
 
@@ -147,6 +147,7 @@
   mask-composite: subtract;
   animation: l3 1s infinite linear;
 }
+
 @keyframes l3 {
   to {
     transform: rotate(1turn);

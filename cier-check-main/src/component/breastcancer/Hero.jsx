@@ -16,7 +16,7 @@ const Hero = () => {
   const [ref, inView] = useInView({ triggerOnce: true });
   return (
     <main className="w-full contact-header h-[120vh] lg:h-[80vh] relative overflow-hidden">
-      <Navbar />
+      {/* <Navbar /> */}
       <div className="w-full h-full horizontal-padding flex flex-col items-start justify-center gap-5 lg:gap-6 relative overflow-y-hidden text-white lg:w-2/3 pt-10 lg:py-28">
         <motion.h1
           className="text-4xl lg:text-6xl font-extrabold lg:leading-[70px]"

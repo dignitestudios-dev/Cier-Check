@@ -18,7 +18,7 @@ const Helping = () => {
     threshold: 0.1,
   });
   return (
-    <div className={`w-full flex horizontal-padding gap-x-10 py-10 lg:py-20 ${theme === "light" ? 'bg-white text-black' : 'bg-dark text-white'}`}>
+    <div className={` w-full horizontal-padding gap-x-10 py-10 lg:py-20 ${theme === "light" ? 'bg-white text-black' : 'bg-dark text-white'}`}>
       <div className="w-full flex flex-col items-center justify-center text-center gap-4 pt-12 lg:pt-8">
         <motion.h2
           className="section-heading"
@@ -95,6 +95,7 @@ const Helping = () => {
           <DonateButton />
         </button>
       </div>
+
     </div>
   );
 };

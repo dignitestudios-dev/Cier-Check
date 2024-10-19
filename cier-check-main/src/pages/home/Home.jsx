@@ -9,15 +9,17 @@ import Reviews from '../../component/Home/Reviews'
 import Products from '../../component/Home/Products'
 import QuizBar from '../../component/Home/QuizBar'
 import ProductCategory from '../../component/Home/Category'
+import Community from '../../component/Home/Community'
 
 const Home = () => {
     return (
         <div>
             <Hero />
             <Helping />
-            <Products/>
-            <QuizBar/>
-            <ProductCategory/>
+            <Products />
+            <QuizBar />
+            <Community />
+            {/* <ProductCategory/> */}
             <BecomeAware />
             {/* <HappyStories /> */}
             <Reviews />

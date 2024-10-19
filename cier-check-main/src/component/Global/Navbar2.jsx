@@ -8,7 +8,7 @@ import { IoClose } from 'react-icons/io5'
 import { FaCartShopping } from 'react-icons/fa6'
 
 const Navbar2 = () => {
-    const { theme,setDrawOpen,isDrawOpen,CartItemLeng } = useContext(ThemeContext)
+    const { theme, setDrawOpen, isDrawOpen, CartItemLeng, setOpenDrawer, openDrawer, products } = useContext(ThemeContext)
     const [open, setOpen] = useState(false)
     const handlenav = () => {
         setOpen(!open)
@@ -47,17 +47,20 @@ const Navbar2 = () => {
                 </div>
                 <div className='navbar '>
                     <Link to={'/'} className={`text-size  hover:text-pink-600 ${isScrolled ? `${theme === "light" ? ' text-black' : ' text-white'}` : "text-white"}`}>Home</Link>
+                    <Link to={"/product"} className={`text-size  hover:text-pink-600 ${isScrolled ? `${theme === "light" ? ' text-black' : ' text-white'}` : "text-white"}`}>
+                        Shop
+                    </Link>
                     <Link to={'/breast-cancer'} className={`text-size  hover:text-pink-600 ${isScrolled ? `${theme === "light" ? ' text-black' : ' text-white'}` : "text-white"}`} >Breast Cancer Awareness</Link>
                     <Link to={'/cancer-glossery'} className={`text-size  hover:text-pink-600 ${isScrolled ? `${theme === "light" ? ' text-black' : ' text-white'}` : "text-white"}`} >Cancer Glossary</Link>
                     <Link to={'/contact-us'} className={`text-size  hover:text-pink-600 ${isScrolled ? `${theme === "light" ? ' text-black' : ' text-white'}` : "text-white"}`}>Contact Us</Link>
                     <Link to={'/startquestionnaire'} className=' bg-pink-600 px-6 py-3 rounded-lg border-2 border-pink-600 text-white hover:text-pink-600 hover:bg-white duration-300 transition-all'>Start Questionnaire</Link>
                     <ThemeTogglerButton />
-                    <div class='text-center flex justify-center gap-6'>
-      <button type='button' onClick={()=>setDrawOpen(!isDrawOpen)}  class='relative inline-flex items-center p-3 text-sm font-medium text-center text-white bg-pink-600 rounded-lg '>
-      <FaCartShopping size={20} />
-      <div class='absolute inline-flex items-center justify-center py-0.5 px-1.5 text-xs font-normal text-white bg-red-500 border-2 border-white rounded-full -top-3 -left-3'>{CartItemLeng}</div>
-      </button>
-      </div>
+                    <div className='text-center flex justify-center gap-6'>
+                        <button type='button' onClick={() => setOpenDrawer(!openDrawer)} class='relative inline-flex items-center p-3 text-sm font-medium text-center text-white bg-pink-600 rounded-lg '>
+                            <FaCartShopping size={20} />
+                            <div className='absolute inline-flex items-center justify-center py-0.5 px-1.5 text-xs font-normal text-white bg-red-500 border-2 border-white rounded-full -top-3 -left-3'>{products.length}</div>
+                        </button>
+                    </div>
                 </div>
 
                 <div className='lg:hidden '>
@@ -106,7 +109,7 @@ const Navbar2 = () => {
                         >
                             Start Questionnaire
                         </Link>
-                    
+
                     </div>
                 </div>
             </div>
