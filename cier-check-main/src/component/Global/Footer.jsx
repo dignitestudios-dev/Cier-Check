@@ -42,6 +42,12 @@ const Footer = () => {
           <Link to="/" className="text-[15px]">
             Home
           </Link>
+          <Link to="/product" className="text-[15px]">
+            Shop
+          </Link>
+          <Link to="/offers" className="text-[15px]">
+            Offers
+          </Link>
           <Link to="/breast-cancer" className="text-[15px]">
             Breast Cancer Awareness
           </Link>

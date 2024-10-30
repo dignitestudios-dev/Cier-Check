@@ -8,7 +8,7 @@ export default function Products() {
   const { theme } = useContext(ThemeContext)
   return (
     <div className={`w-full flex flex-col items-center  justify-center text-center gap-6 py-12 lg:py-20 horizontal-padding ${theme === "light" ? 'bg-white text-black' : 'bg-dark'}`} >
-      <h2 className='text-center text-4xl font-bold' >Choose the dermatologist-developed routine for your unique skin</h2>
+      <h2 className='text-center section-heading' >Choose the dermatologist-developed routine for your unique skin</h2>
       <div className='w-full grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mt-10'>
         {
           ProductsJson.map((item, i) => (

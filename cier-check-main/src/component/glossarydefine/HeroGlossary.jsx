@@ -12,7 +12,6 @@ const HeroGlossary = () => {
     return (
         <div>
 
-            <Navbar2 />
             <div className={`py-10 horizontal-padding ${theme === "light" ? 'bg-white text-black' : 'bg-dark'}`} >
                 <div className='w-full flex items-center border border-pink-600 rounded-sm '>
                     <input type="text" className={`py-3 outline-none w-full px-5 ${theme === "light" ? 'bg-white text-black' : 'bg-dark text-white'}`} />

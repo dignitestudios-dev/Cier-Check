@@ -30,12 +30,12 @@ export default function ShopProduct() {
 
   return (
     <div className={`w-full flex flex-col items-center  justify-center text-center gap-6 pb-10  horizontal-padding ${theme === "light" ? 'bg-white text-black' : 'bg-dark'}`} >
-      <h2 className='text-center text-6xl font-bold' >All Products</h2>
-      <div className='w-full grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3  gap-6 mt-10'>
+      <h2 className='text-center section-heading' >All Products</h2>
+      <div className='w-full grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mt-10'>
         {
           ProductsJson.map((item, i) => (
 
-            <div className='border border-[#FBCFE8]' key={i} >
+            <div className='border border-[#FBCFE8] ' key={i} >
               <div>
                 <img src={item.image} alt="" />
               </div>

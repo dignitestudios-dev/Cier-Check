@@ -19,9 +19,9 @@ const Community = () => {
         threshold: 0.1,
     });
     return (
-        <div className='w-full flex flex-col items-center justify-center gap-6'>
+        <div className={`w-full flex flex-col items-center justify-center gap-4 px-10 lg:px-28 ${theme === "light" ? 'bg-white text-black ' : 'bg-dark'}`}>
             <h1
-                className=" w-full flex items-center justify-center lg:text-6xl font-medium"
+                className="text-center  section-heading"
                 ref={ref}
                 style={{
                     transform: inView ? "translateY(0)" : "translateY(100px)",
@@ -31,7 +31,7 @@ const Community = () => {
             >
                 Join the Proactiv Community!
             </h1>
-            <p className=" w-full flex items-center justify-center lg:text-4xl font-medium"
+            <p className=" lg:text-4xl md:text-2xl text-xl font-medium"
                 ref={ref}
                 style={{
                     transform: inView ? "translateY(0)" : "translateY(100px)",
@@ -41,7 +41,7 @@ const Community = () => {
             >
                 follow us @proactiv
             </p>
-            <div className=" w-full flex items-center justify-center lg:text-4xl font-medium gap-4"
+            <div className=" w-full flex items-center justify-center lg:text-4xl md:text-2xl text-xl font-medium gap-4 "
                 ref={ref}
                 style={{
                     transform: inView ? "translateY(0)" : "translateY(100px)",
@@ -53,6 +53,26 @@ const Community = () => {
                     <FaInstagram />
                 </Link>
                 <Link to={'https://www.facebook.com/'}><FaFacebook /></Link>
+
+                <Link to={'https://www.facebook.com/'}><FaFacebook /></Link>
+                <Link to={'https://www.facebook.com/'}><FaFacebook /></Link>
+
+            </div>
+            <div className='w-full grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 pt-9  gap-10'>
+                <Link to={'https://www.facebook.com/'}>  <div>
+                    <img src="public/beauty-product-spreading-out.jpg" alt="" />
+                </div></Link>
+
+                <Link to={'https://www.facebook.com/'}>  <div>
+                    <img src="public/beauty-product-spreading-out.jpg" alt="" />
+                </div></Link>
+                <Link to={'https://www.facebook.com/'}>  <div>
+                    <img src="public/beauty-product-spreading-out.jpg" alt="" />
+                </div></Link>
+                <Link to={'https://www.facebook.com/'}>  <div>
+                    <img src="public/beauty-product-spreading-out.jpg" alt="" />
+                </div></Link>
+
             </div>
         </div>
     )

@@ -38,7 +38,7 @@ const Navbar = () => {
 
   return (
     <div className={`w-full  transition-all duration-200 ${theme === "light" ? 'bg-white text-black shadow-lg' : 'bg-black'}`}>
-      <div className={`relative w-full h-20 md:h-24 lg:h-28 bg-black lg:bg-transparent flex items-center z-50 justify-between horizontal-padding ${theme === 'light' ? 'bg-white' : 'bg-black'}`}>
+      <div className={`relative w-full h-20 md:h-24 lg:h-28 bg-black lg:bg-transparent flex items-center z-50 justify-between horizontal-padding shadow-lg ${theme === 'light' ? 'bg-white' : 'bg-black'}`}>
         <div className="">
           <Link to={"/"}>
             <img src="/logo-2.png" className=" h-[4.5rem]" alt="" />
@@ -50,6 +50,9 @@ const Navbar = () => {
           </Link>
           <Link to={"/product"} className={`text-size  hover:text-pink-600 ${theme === "light" ? ' text-black' : ' text-white'}`}>
             Shop
+          </Link>
+          <Link to={"/offers"} className={`text-size  hover:text-pink-600 ${theme === "light" ? ' text-black' : ' text-white'}`}>
+            Offers
           </Link>
           <Link
             to={"/breast-cancer"}
@@ -105,7 +108,7 @@ const Navbar = () => {
               className={`border-2 border-pink-600 px-2 py-1`}
               onClick={handlenav}
             >
-              <IoClose className="text-xl" />{" "}
+              <IoClose className="text-xl" />
             </button>
             <ThemeTogglerButton />
           </div>
@@ -119,6 +122,18 @@ const Navbar = () => {
               className={`text-size   ${theme === "light" ? 'text-black' : 'text-white'} hover:text-pink-600 border-b w-full py-4 font-medium`}
             >
               Breast Cancer Awareness
+            </Link>
+            <Link
+              to={"/product"}
+              className={`text-size  ${theme === "light" ? 'text-black' : 'text-white'} hover:text-pink-600 border-b w-full py-4 font-medium`}
+            >
+              Shop
+            </Link>
+            <Link
+              to={"/offers"}
+              className={`text-size  ${theme === "light" ? 'text-black' : 'text-white'} hover:text-pink-600 border-b w-full py-4 font-medium`}
+            >
+              Offers
             </Link>
             <Link
               to={"/cancer-glossery"}

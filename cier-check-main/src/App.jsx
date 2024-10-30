@@ -8,6 +8,7 @@ import ScrollToTopButton from "./component/Global/ScrollToTopButton";
 import AllProduct from "./pages/Product/AllProducts";
 import Detail from "./pages/ProductDetail/Detail";
 import Checkout from "./pages/Checkout/Checkout";
+import Offer from "./pages/offer/Offer";
 
 const Home = lazy(() => import("./pages/home/Home"));
 const BreastCancer = lazy(() =>
@@ -55,6 +56,7 @@ function App() {
           element={<Layout pages={<Checkout />} />}
         />
         <Route path="/admin" element={<Layout pages={<Admin />} />} />
+        <Route path="/offers" element={<Layout pages={<Offer />} />} />
       </Routes>
     </Suspense>
   );

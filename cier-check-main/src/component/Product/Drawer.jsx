@@ -3,6 +3,7 @@ import { IoMdClose } from "react-icons/io";
 import { json, NavLink } from "react-router-dom";
 import { ProductsJson } from "../../constants/Products";
 import { ThemeContext } from "../context/ThemeContext";
+import card from "@material-tailwind/react/theme/components/card";
 export default function Drawer() {
 
   const { theme, setOpenDrawer, setCartItemLeng, products, toggleTodo, getTotalPrice, handleQuantityChange, addProduct, deleteTodo, openDrawer, calculateSubtotal } = useContext(ThemeContext)
@@ -98,7 +99,21 @@ export default function Drawer() {
               <p>${getTotalPrice()}</p> {/* Display total with two decimal places */}
             </div>
           </div>
-          <NavLink to={'/checkout'} className='bg-pink-600 px-5 py-3 rounded-lg border-2 border-pink-600 text-white hover:text-pink-600 hover:bg-white duration-300 transition-all mt-2 mb-4 ' onClick={() => setOpenDrawer(!openDrawer)}>Checkout</NavLink>
+          {products.length === 0 ? (
+            <button className='bg-pink-600 px-5 py-3 rounded-lg border-2 border-pink-600 text-white mt-2 mb-4' disabled>
+              Checkout
+            </button>
+          ) : (
+            <NavLink
+              to={'/checkout'}
+              className='bg-pink-600 px-5 py-3 rounded-lg border-2 border-pink-600 text-white hover:text-pink-600 hover:bg-white duration-300 transition-all mt-2 mb-4'
+              onClick={() => setOpenDrawer(!openDrawer)}
+            >
+              Checkout
+            </NavLink>
+          )}
+
+          {/* <NavLink to={'/checkout'} className='bg-pink-600 px-5 py-3 rounded-lg border-2 border-pink-600 text-white hover:text-pink-600 hover:bg-white duration-300 transition-all mt-2 mb-4 ' disabled={products.length == 0 ? true : false} onClick={() => setOpenDrawer(!openDrawer)}>Checkout</NavLink> */}
         </div>
       </section>
       <section

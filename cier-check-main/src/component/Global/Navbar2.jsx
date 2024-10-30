@@ -37,7 +37,7 @@ const Navbar2 = () => {
     }, []);
 
     return (
-        <div className={`w-full fixed left-0 top-0 z-50 transition-all duration-200 ${isScrolled ? `${theme === "light" ? 'bg-white text-black' : 'bg-black text-black'}` : "bg-pink-300"}`}>
+        <div className={`w-full fixed left-0 top-0 z-40 transition-all duration-200 ${isScrolled ? `${theme === "light" ? 'bg-white text-black' : 'bg-black text-black'}` : "bg-pink-300"}`}>
 
             <div className='w-full h-28 relative   flex items-center z-50 justify-between horizontal-padding'>
                 <div className=''>
@@ -49,6 +49,9 @@ const Navbar2 = () => {
                     <Link to={'/'} className={`text-size  hover:text-pink-600 ${isScrolled ? `${theme === "light" ? ' text-black' : ' text-white'}` : "text-white"}`}>Home</Link>
                     <Link to={"/product"} className={`text-size  hover:text-pink-600 ${isScrolled ? `${theme === "light" ? ' text-black' : ' text-white'}` : "text-white"}`}>
                         Shop
+                    </Link>
+                    <Link to={"/offers"} className={`text-size  hover:text-pink-600 ${isScrolled ? `${theme === "light" ? ' text-black' : ' text-white'}` : "text-white"}`}>
+                        Offers
                     </Link>
                     <Link to={'/breast-cancer'} className={`text-size  hover:text-pink-600 ${isScrolled ? `${theme === "light" ? ' text-black' : ' text-white'}` : "text-white"}`} >Breast Cancer Awareness</Link>
                     <Link to={'/cancer-glossery'} className={`text-size  hover:text-pink-600 ${isScrolled ? `${theme === "light" ? ' text-black' : ' text-white'}` : "text-white"}`} >Cancer Glossary</Link>
@@ -69,7 +72,7 @@ const Navbar2 = () => {
 
             </div>
 
-            <div className={`w-full h-screen bg-transparent absolute inset-0 z-50 ${open ? 'translate-x-0' : 'translate-x-full'} transition-all duration-500`}>
+            <div className={`w-full h-screen bg-transparent absolute inset-0 z- ${open ? 'translate-x-0' : 'translate-x-full'} transition-all duration-500`}>
                 <div className={`h-full ${theme === 'light' ? 'bg-white' : 'bg-dark'} w-[70%] float-end p-4`}>
                     <div className="w-full flex items-center justify-between">
                         <button
@@ -90,6 +93,18 @@ const Navbar2 = () => {
                             className={`text-size   ${theme === "light" ? 'text-black' : 'text-white'} hover:text-pink-600 border-b w-full py-4 font-medium`}
                         >
                             Breast Cancer Awareness
+                        </Link>
+                        <Link
+                            to={"/product"}
+                            className={`text-size  ${theme === "light" ? 'text-black' : 'text-white'} hover:text-pink-600 border-b w-full py-4 font-medium`}
+                        >
+                            Shop
+                        </Link>
+                        <Link
+                            to={"/offers"}
+                            className={`text-size  ${theme === "light" ? 'text-black' : 'text-white'} hover:text-pink-600 border-b w-full py-4 font-medium`}
+                        >
+                            Offers
                         </Link>
                         <Link
                             to={"/cancer-glossery"}

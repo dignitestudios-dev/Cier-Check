@@ -6,9 +6,9 @@ import Banner from '../../component/Product/Banner'
 export default function AllProduct() {
   return (
     <>
-     <Navbar2/>
-     <Banner/>
-     <ShopProduct/>
+
+      <Banner />
+      <ShopProduct />
     </>
   )
 }

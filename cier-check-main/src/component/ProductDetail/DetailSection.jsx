@@ -5,9 +5,10 @@ import { ProductsJson } from '../../constants/Products';
 import { IoIosStar } from 'react-icons/io';
 import { CiStar } from 'react-icons/ci';
 import { FaCartShopping } from 'react-icons/fa6';
+import { Radio } from "@material-tailwind/react";
 
 export default function DetailSection() {
-    const { theme } = useContext(ThemeContext)
+    const { theme, addProduct } = useContext(ThemeContext)
     const paramId = useParams();
     const [product, setProduct] = useState({});
     const [qty, setQty] = useState(1);
@@ -19,87 +20,131 @@ export default function DetailSection() {
     const HandleCart = (ProductId) => {
 
         const cartData = JSON.parse(localStorage.getItem("cart")) || [];
-  
+
         const newItem = {
-          id: ProductId,
-          qty: qty,
+            id: ProductId,
+            qty: qty,
         };
         const existingItem = cartData?.find((item) => item.id === ProductId);
-      
+
         if (existingItem) {
-          existingItem.qty +=parseInt(qty);
+            existingItem.qty += parseInt(qty);
         } else {
-          cartData.push(newItem);
+            cartData.push(newItem);
         }
-  
+
         localStorage.setItem("cart", JSON.stringify(cartData));
         setDrawOpen(!isDrawOpen)
-      };
-  
+    };
+
 
 
 
     return (
         <div className={`w-full flex flex-col items-center  justify-center  gap-6 pb-10   horizontal-padding ${theme === "light" ? 'bg-white text-black' : 'bg-dark'}`} >
-            <div className="">
-                <div className="container mx-auto px-4 py-8  mt-28">
-                    <div className="flex flex-wrap -mx-4">
-                        {/* Product Images */}
-                        <div className="w-full md:w-1/2 px-4 mb-8">
-                            <img
-                                src={product.image}
-                                alt="Product"
-                                className="w-full h-[80%] rounded-lg shadow-md mb-4"
-                                id="mainImage"
-                            />
+
+            <div className="container mx-auto px-4 py-8  mt-28">
+                <div className="flex flex-wrap -mx-4">
+
+                    <div className="w-full md:w-1/2 px-4 mb-8">
+                        <img
+                            src={product.image}
+                            alt="Product"
+                            className="w-full h-[80%] rounded-lg shadow-md mb-4"
+                            id="mainImage"
+                        />
+                    </div>
+
+                    <div className="w-full md:w-1/2 px-4 mt-2 flex flex-col">
+                        <h2 className="text-6xl font-bold mb-2">{product.title}</h2>
+
+                        <div className="flex items-center mb-4">
+                            <div className="review flex  items-center justify-center mt-2">
+                                <IoIosStar color='#FAAF00' size={28} />
+                                <IoIosStar color='#FAAF00' size={28} />
+                                <IoIosStar color='#FAAF00' size={28} />
+                                <IoIosStar color='#FAAF00' size={28} />
+
+                                <CiStar className='' size={28} />
+                                <span className="pl-3 text-lg text-blue-500 ">{product.ratting} (120 reviews)</span>
+                            </div>
                         </div>
-                        {/* Product Details */}
-                        <div className="w-full md:w-1/2 px-4 mt-2">
-                            <h2 className="text-3xl font-bold mb-2">{product.title}</h2>
-                            <div className="mb-4">
+                        <div>
 
-                                <span className="text-lg font-bold mr-2">${product.price}</span>
-                            </div>
-                            <div className="flex items-center mb-4">
-                                <div className="review flex justify-center mt-2">
-                                    <IoIosStar color='#FAAF00' size={23} />
-                                    <IoIosStar color='#FAAF00' size={23} />
-                                    <IoIosStar color='#FAAF00' size={23} />
-                                    <CiStar className='' size={23} />
-                                    <span className="ml-2 ">{product.ratting} (120 reviews)</span>
-                                </div>
-
-                            </div>
-                            <p className=" mb-6">
+                            <p className=" mb-6 text-xl font-normal">
                                 {product.text}
                             </p>
-                            <div className="mb-6">
+                        </div>
+                        <div className='w-full flex  justify-start gap-4 pb-6'>
+
+                            <div class={`flex items-center mb-4 ${theme === "light" ? 'bg-white text-black' : 'bg-dark'}`}>
+                                <input id="default-radio-1" type="radio" value="" name="default-radio" class="w-12 h-12 " />
+                            </div>
+                            <div className='flex flex-col'>
+
+                                <label for="default-radio-1" class={` ms-2 text-2xl font-medium text-gray-900 dark:text-gray-300 flex gap-6 ${theme === "light" ? 'bg-white text-black' : 'bg-dark'}`}>{product.mixpt} <span>${product.mixprice}.00/Month</span>
+                                </label>
+                                <ul className='ms-7 list-disc text-lg'>
+                                    <li>Save up to 30% when subscribing</li>
+                                    <li>Save up to 30% when subscribing</li>
+                                    <li>Save up to 30% when subscribing</li>
+                                    <li>Save up to 30% when subscribing</li>
+
+                                </ul>
+
+
+                            </div>
+
+
+
+
+
+                        </div>
+
+                        <div class="flex items-center pb-10">
+                            <input checked id="default-radio-2" type="radio" value="" name="default-radio" class="w-12 h-12 " />
+                            <label for="default-radio-2" class={`ms-2 text-2xl font-medium text-gray-900 dark:text-gray-300 flex gap-6 ${theme === "light" ? 'bg-white text-black' : 'bg-dark'}`}>{product.minipt} <span>${product.miniprice}.00</span></label>
+                        </div>
+
+
+                        <div className='flex items-center justify-start gap-5'>
+
+                            <div className="">
                                 <label
                                     htmlFor="quantity"
                                     className="block text-sm font-medium     mb-1"
                                 >
-                                    Quantity:
+
                                 </label>
                                 <input
                                     type="number"
                                     id="quantity"
                                     name="quantity"
                                     min={1}
-                                    onChange={(e)=>setQty(e.target.value)}
+                                    onChange={(e) => setQty(e.target.value)}
                                     defaultValue={1}
-                                    className={`w-12 ${theme === "light" ? 'bg-white text-black' : 'bg-dark'} text-center rounded-md border-gray-300  shadow-sm focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50`}
+                                    className={`w-20 h-10 ${theme === "light" ? 'bg-white text-black' : 'bg-dark'} text-center rounded-md border-gray-300  text-xl shadow-sm focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50`}
                                 />
                             </div>
-                            <div className="flex space-x-4 mb-6">
-                                <button  onClick={() => HandleCart(product?.id)} className="bg-pink-600 flex gap-2 items-center text-white px-6 py-2 rounded-md hover:bg-pink-700 focus:outline-none focus:ring-2 focus:ring-pink-500 focus:ring-offset-2">
-                                <FaCartShopping color="white" size={20} />
+                            <div className="flex ">
+                                <button onClick={() => addProduct(item)} className="bg-pink-600 flex gap-2 items-center text-white px-6 py-3 rounded-md hover:bg-pink-700 focus:outline-none focus:ring-2 focus:ring-pink-500 focus:ring-offset-2">
+                                    <FaCartShopping color="white" size={20} />
                                     Add to Cart
                                 </button>
+                            </div>
+                        </div>
+                        <div className='pt-28 flex flex-col justify-center'>
+                            <h3 className='text-4xl font-bold'>Size</h3>
+                            <div className='pt-8 flex gap-3'>
+                                <button className='py-4 px-6 border-2 border-pink-600 rounded-full text-2xl font-bold hover:bg-pink-200 duration-200 transition-all'>90 day</button>
+                                <button className='py-4 px-6 border-2 border-pink-600 rounded-full text-2xl font-bold hover:bg-pink-200 duration-200 transition-all'>90 day</button>
+
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
+
 
         </div>
     )

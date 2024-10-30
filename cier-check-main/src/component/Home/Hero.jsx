@@ -17,23 +17,23 @@ const Hero = () => {
   const [ref, inView] = useInView({ triggerOnce: true });
   return (
 
-    <main className="w-full grid grid-cols-1 lg:grid-cols-2 ">
+    <main className="w-full  grid grid-cols-1 md:grid-cols-1 lg:grid-cols-2 justify-center ">
 
       <div>
-        <img src="public/a0c909613b.jpeg" className="" alt="" />
+        <img src="/a0c909613b.jpeg" className=" w-full h-full" alt="" />
       </div>
-      <div className="hero h-[50vh] lg:h-[100%]  lg:w-full p-24 lg:p-32 flex flex-col gap-5  text-white">
-        <motion.h1
-          className="text-2xl lg:text-3xl xl:text-6xl font-bold lg:leading-[70px]"
+      <div className="hero w-full p-10 md:p-12 lg:p-20 xl:p-32 flex flex-col gap-5  text-white">
+        <motion.h2
+          className="w-full text-2xl lg:text-2xl xl:text-6xl font-bold xl:leading-[50px]"
           ref={ref}
           initial={{ opacity: 0, y: 50 }}
           animate={{ opacity: inView ? 1 : 0, y: inView ? 0 : 50 }}
           transition={{ duration: 1, ease: "easeOut" }}
         >
-          Celebrating Awareness <br /> About Cancer
-        </motion.h1>
+          Celebrating Awareness About Cancer
+        </motion.h2>
         <motion.p
-          className="lg:w-[80%] font-medium text-sm lg:text-base"
+          className="lg:w-[70%] font-medium text-base lg:text-lg"
           ref={ref}
           initial={{ opacity: 0, y: 50 }}
           animate={{ opacity: inView ? 1 : 0, y: inView ? 0 : 50 }}

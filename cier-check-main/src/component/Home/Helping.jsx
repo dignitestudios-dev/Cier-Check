@@ -33,7 +33,7 @@ const Helping = () => {
         </motion.h2>
         <div className=" " />
         <motion.p
-          className="gray-text "
+          className="px-4 lg:px-40 gray-text "
           ref={ref}
           style={{
             transform: inView ? "translateY(0)" : "translateY(100px)",
@@ -50,7 +50,7 @@ const Helping = () => {
           strength to confront the future with unparalleled resilience.
         </motion.p>
         <motion.p
-          className="gray-text"
+          className="px-4 lg:px-40 gray-text"
           ref={ref}
           style={{
             transform: inView ? "translateY(0)" : "translateY(100px)",
@@ -66,7 +66,7 @@ const Helping = () => {
           detection remains resolute.
         </motion.p>
         <motion.p
-          className="gray-text"
+          className="px-4 lg:px-40 gray-text"
           ref={ref}
           style={{
             transform: inView ? "translateY(0)" : "translateY(100px)",

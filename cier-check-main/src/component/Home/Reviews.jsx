@@ -50,8 +50,8 @@ const Reviews = () => {
     <div className={`w-full ${theme === "light" ? 'bg-white text-black ' : 'bg-dark'}`} >
       <div className="w-full px-4 md:8 lg:px-16 py-16">
         <div className="horizontal-padding pb-10">
-          <motion.h1
-            className=" w-full flex items-center justify-center lg:text-6xl font-medium"
+          <motion.h2
+            className=" w-full flex justify-center text-center section-heading"
             ref={ref}
             style={{
               transform: inView ? "translateY(0)" : "translateY(100px)",
@@ -60,7 +60,7 @@ const Reviews = () => {
             }}
           >
             What Our Patients Say About Us
-          </motion.h1>
+          </motion.h2>
         </div>
         <Swiper
           {...sliderSettings}
@@ -92,7 +92,7 @@ const Reviews = () => {
                   className="w-28 h-28 rounded-full"
                 />
                 <div className="w-full flex flex-col items-center  gap-2 lg:w-[80%] text-center lg:text-left ">
-                  <p className="text-gray-400 text-center font-normal text-[16px] lg:text-[22px]">
+                  <p className="w-[80vh] text-gray-400 text-center font-normal text-[16px] lg:text-[22px]">
                     I can’t express enough gratitude for the peace of mind the
                     ‘Breast Cancer Check’ device has brought into my life. Its
                     accuracy and user-friendly design make it an indispensable
@@ -117,7 +117,7 @@ const Reviews = () => {
                   className="w-28 h-28 rounded-full"
                 />
                 <div className="w-full flex flex-col items-center  gap-2 lg:w-[80%] text-center lg:text-left ">
-                  <p className="text-gray-400 font-normal text-center text-[16px] lg:text-[22px]">
+                  <p className="text-gray-400 font-normal text-center text-[16px] lg:text-[22px] w-[80vh]">
                     I can’t express enough gratitude for the peace of mind the
                     ‘Breast Cancer Check’ device has brought into my life. Its
                     accuracy and user-friendly design make it an indispensable
@@ -142,7 +142,7 @@ const Reviews = () => {
                   className="w-28 h-28 rounded-full"
                 />
                 <div className="w-full flex flex-col items-center  gap-2 lg:w-[80%] text-center lg:text-left ">
-                  <p className="text-gray-400 font-normal text-center text-[16px] lg:text-[22px]">
+                  <p className="w-[80vh] text-gray-400 font-normal text-center text-[16px] lg:text-[22px]">
                     I can’t express enough gratitude for the peace of mind the
                     ‘Breast Cancer Check’ device has brought into my life. Its
                     accuracy and user-friendly design make it an indispensable
@@ -167,7 +167,7 @@ const Reviews = () => {
                   className="w-28 h-28 rounded-full"
                 />
                 <div className="w-full flex flex-col items-center  gap-2 lg:w-[80%] text-center lg:text-left ">
-                  <p className="text-gray-400 font-normal text-center text-[16px] lg:text-[22px]">
+                  <p className="text-gray-400 font-normal text-center text-[16px] lg:text-[22px] w-[80vh]">
                     I can’t express enough gratitude for the peace of mind the
                     ‘Breast Cancer Check’ device has brought into my life. Its
                     accuracy and user-friendly design make it an indispensable

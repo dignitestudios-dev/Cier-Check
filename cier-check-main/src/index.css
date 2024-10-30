@@ -78,8 +78,8 @@
   background: url("/bg.png");
   background-position: center;
   background-size: cover;
-  width: 100%;
-  height: 100%;
+  /* width: 100%; */
+  /* height: 100%; */
 }
 
 .swiper {
@@ -126,7 +126,7 @@
 }
 
 .section-heading {
-  @apply text-3xl lg:text-5xl font-semibold lg:w-1/2 lg:leading-[58px];
+  @apply text-3xl lg:text-5xl font-semibold lg:leading-[58px];
 }
 
 .bg-dark {

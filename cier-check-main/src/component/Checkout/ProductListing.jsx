@@ -26,8 +26,8 @@ export default function ProductListing() {
 
 
     return (
-        <div className={`w-full flex flex-col items-center   justify-center text-center gap-6 pb-10  horizontal-padding ${theme === "light" ? 'bg-white text-black' : 'bg-dark'}`} >
-            <div className={`lg:mt-[200px] w-full lg:mb-28 p-5 ${theme === "light" ? 'bg-pink-200 text-black' : 'bg-dark'} `} >
+        <div className={`w-full flex flex-col items-center   justify-center text-center gap-6 py-10  horizontal-padding ${theme === "light" ? 'bg-white text-black' : 'bg-dark'}`} >
+            <div className={`lg:mt-[200px] w-full  p-5 ${theme === "light" ? 'bg-pink-200 text-black' : 'bg-[#2d2d2d]'} `} >
                 <h2 className='text-start font-bold text-2xl' >Order Summary</h2>
                 <div className={`w-full mt-5 p-5 rounded ${theme === "light" ? 'bg-white text-black' : 'bg-dark'} `} >
                     <h2 className='text-start font-bold text-2xl' >Your Selections</h2>
