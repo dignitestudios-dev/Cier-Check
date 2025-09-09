@@ -85,12 +85,12 @@ const Navbar = () => {
             </div>
           </Link> */}
 
-          <div class='text-center flex justify-center gap-6'>
-            <button type='button' onClick={() => setOpenDrawer(!openDrawer)} class='relative inline-flex items-center p-3 text-sm font-medium text-center text-white bg-pink-600 rounded-lg '>
+          {/* <div className='text-center flex justify-center gap-6'>
+            <button type='button' onClick={() => setOpenDrawer(!openDrawer)} className='relative inline-flex items-center p-3 text-sm font-medium text-center text-white bg-pink-600 rounded-lg '>
               <FaCartShopping size={20} />
-              <div class='absolute inline-flex items-center justify-center py-0.5 px-1.5 text-xs font-normal text-white bg-red-500 border-2 border-white rounded-full -top-3 -left-3'>{products.length}</div>
+              <div className='absolute inline-flex items-center justify-center py-0.5 px-1.5 text-xs font-normal text-white bg-red-500 border-2 border-white rounded-full -top-3 -left-3'>{products.length}</div>
             </button>
-          </div>
+          </div> */}
           <ThemeTogglerButton />
 
         </div>

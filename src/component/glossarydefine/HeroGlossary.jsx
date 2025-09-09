@@ -12,7 +12,7 @@ const HeroGlossary = () => {
     return (
         <div>
 
-            <div className={`py-10 horizontal-padding ${theme === "light" ? 'bg-white text-black' : 'bg-dark'}`} >
+            <div className={`py-10 horizontal-padding cancer-glossery ${theme === "light" ? 'bg-white text-black' : 'bg-dark'}`}  >
                 <div className='w-full flex items-center border border-pink-600 rounded-sm '>
                     <input type="text" className={`py-3 outline-none w-full px-5 ${theme === "light" ? 'bg-white text-black' : 'bg-dark text-white'}`} />
                     <Link to={'/admin'} className='px-5 bg-pink-600 py-3 rounded-r-sm'> <BsFillSearchHeartFill className='w-6 h-6 text-white' /></Link>
