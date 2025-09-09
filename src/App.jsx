@@ -12,7 +12,7 @@ import Offer from "./pages/offer/Offer";
 import SignIn from "./pages/auth/SignIn";
 import SignUp from "./pages/auth/SignUp";
 import ForgotPassword from "./pages/auth/ForgotPassword";
-import UserCheckOut from "./component/Checkout/method/userCheckOut";
+
 
 const Home = lazy(() => import("./pages/home/Home"));
 const BreastCancer = lazy(() =>
@@ -69,8 +69,8 @@ function App() {
         />
         <Route path="/forgot-password" element={<Layout pages={<ForgotPassword />} />}
         /> */}
-        <Route path="/user-chech-out" element={<Layout pages={<UserCheckOut />} />}
-        />
+        {/* <Route path="/user-chech-out" element={<Layout pages={<UserCheckOut />} />}
+        /> */}
 
       </Routes>
     </Suspense>
