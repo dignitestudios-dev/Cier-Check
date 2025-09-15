@@ -16,38 +16,38 @@ const BecomeAware = () => {
   });
 const Aware = [
     {
-        icon: "public/Reliable.png",
-        iconpink: "public/Reliablepink.png",
+        icon: "/Reliable.png",
+        iconpink: "/Reliablepink.png",
         title: "Reliable Accuracy",
         description: "Trust in our “Breast Cancer Check” device for accurate results, ensuring peace of mind in your proactive healthcare journey.",
     } ,
     {
-        icon: "public/User-Friendly.png",
-        iconpink: "public/User-Friendlypink.png",
+        icon: "/User-Friendly.png",
+        iconpink: "/User-Friendlypink.png",
         title: "User-Friendly Design",
         description: "Experience simplicity with our intuitive “Breast Cancer Check” device, designed for effortless self-checks and empowering you to take control of your health.",
     },
     {
-      icon: "public/Early.png",
-      iconpink: "public/Earlypink.png",
+      icon: "/Early.png",
+      iconpink: "/Earlypink.png",
       title: "Early Detection",
       description: "Discover the power of early detection with our device, identifying potential risks early on and enhancing the possibilities of successful intervention.",
     },
     {
-      icon: "public/Private.png",
-      iconpink: "public/Privatepink.png", 
+      icon: "/Private.png",
+      iconpink: "/Privatepink.png", 
       title: "Private and Discreet",
       description: "Prioritize privacy with our discreet “Breast Cancer Check” device, allowing you to perform checks in the comfort of your space with confidentiality.",
     },
     {
-      icon: "public/Support.png",
-      iconpink: "public/supportpink.png",
+      icon: "/Support.png",
+      iconpink: "/supportpink.png",
       title: "Comprehensive Support",
       description: "Embrace a holistic health approach with the “Breast Cancer Check” device, offering accurate results and comprehensive support for your health journey.",
     },
     {
-      icon: "public/Quality.png",
-      iconpink: "public/Qualitypink.png",
+      icon: "/Quality.png",
+      iconpink: "/Qualitypink.png",
       title: "Quality Assurance",
       description: "Rely on excellence with our “Breast Cancer Check” device, a dependable and precise tool for proactive breast health monitoring, ensuring your well-being.",
     }

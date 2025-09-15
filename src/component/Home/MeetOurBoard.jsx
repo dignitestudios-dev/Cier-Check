@@ -3,22 +3,22 @@ import React from "react";
 const MeetOurBoard = () => {
     const Doctors = [
         {
-            image:"public/dr 1.png",
+            image:"/dr 1.png",
             name:"Dr. Rachel Nazarian",
             title:"MD, FAAD"
         },
         {
-            image:"public/dr 1.png",
+            image:"/dr 1.png",
             name:"Dr. Rachel Nazarian",
             title:"MD, FAAD"
         },
         {
-            image:"public/dr 1.png",
+            image:"/dr 1.png",
             name:"Dr. Rachel Nazarian",
             title:"MD, FAAD"
         },
         {
-            image:"public/dr 1.png",
+            image:"/dr 1.png",
             name:"Dr. Rachel Nazarian",
             title:"MD, FAAD"
         }
