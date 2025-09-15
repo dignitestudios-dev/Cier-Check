@@ -40,7 +40,7 @@ const Aware = [
       description: "Prioritize privacy with our discreet “Breast Cancer Check” device, allowing you to perform checks in the comfort of your space with confidentiality.",
     },
     {
-      icon: "/Support.png",
+      icon: "/support.png",
       iconpink: "/supportpink.png",
       title: "Comprehensive Support",
       description: "Embrace a holistic health approach with the “Breast Cancer Check” device, offering accurate results and comprehensive support for your health journey.",
