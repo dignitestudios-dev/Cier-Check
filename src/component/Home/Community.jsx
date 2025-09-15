@@ -20,9 +20,7 @@ const Community = () => {
   });
   return (
     <div
-      className={`w-full flex flex-col items-center justify-center gap-4 px-6 lg:px-28 ${
-        theme === "light" ? "bg-white text-black " : "bg-dark"
-      }`}
+      className={`w-full flex flex-col items-center justify-center gap-4 px-6 lg:px-28 `}
     >
       <h1
         className="text-center  section-heading"

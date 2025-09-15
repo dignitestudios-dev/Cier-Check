@@ -7,13 +7,12 @@ export default function QuizBar() {
     <div className='py-8'>
 
     
-    <div className={` flex flex-col items-center justify-center text-center gap-6 py-12  horizontal-padding  ${theme === "light" ? 'bg-pink-200 text-black' : 'bg-dark'}`} >
-      <div className={`w-full flex flex-col gap-6   rounded  `}>
-        <h2 className='text-center section-heading' >Not sure which routine is right for you? <br />Take our skin quiz!</h2>
-        <div className='mt-7' >
-          <NavLink to={'/startquestionnaire'} className='bg-pink-600 px-5 py-3 rounded-lg border-2 border-pink-600 text-white hover:text-pink-600 hover:bg-white duration-300 transition-all'>Take the quiz</NavLink>
+    <div className={` flex flex-col items-center justify-center text-center gap-6 py-16 Quiz-bg  horizontal-padding `} >
+      
+        <h2 className='text-center text-[36px] font-[600] px-56' >Your Support Can Save Lives Through Early Cancer Detection</h2>
+        <div className='mt-4' >
+          <button className='bg-white px-10 py-3 rounded-[100px] text-[#CF1D67] font-[600] '>Take the Quiz</button>
         </div>
-      </div>
 
     </div>
     </div>

@@ -8,11 +8,11 @@ import Payment from '../../component/Checkout/Payment'
 
 export default function Checkout() {
   return (
-    <>
+    <div className='bg-[#F9FAFA]' >
       {/* <Navbar2 /> */}
       <ProductListing />
       <Form />
       <Payment />
-    </>
+    </div>
   )
 }

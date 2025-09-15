@@ -3,32 +3,37 @@ import { ThemeContext } from '../context/ThemeContext'
 import { CiStar } from "react-icons/ci";
 import { IoIosStar } from "react-icons/io";
 import { ProductsJson } from '../../constants/Products';
-import { NavLink } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 export default function Products() {
   const { theme } = useContext(ThemeContext)
+  const navigate = useNavigate();
   return (
-    <div className={`w-full flex flex-col items-center  justify-center text-center gap-6 py-12 lg:py-20 horizontal-padding ${theme === "light" ? 'bg-white text-black' : 'bg-dark'}`} >
-      <h2 className='text-center section-heading' >Choose the dermatologist-developed routine for your unique skin</h2>
+    <div className={`w-full flex flex-col items-center  justify-center text-center gap-6 py-12 lg:py-20 horizontal-padding `} >
+      <div className='w-full flex items-center justify-between '>
+      <h2 className='text-center text-[24px] font-[600] text-[#000000]' >Choose the dermatologist-developed routine for your unique skin</h2>
+      <button className="bg-[#E10983] w-[85px] h-[40px] rounded-[100px]  text-[#FFFFFF]  text-[16px] font-[500] ">View All</button>
+      </div>
       <div className='w-full grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mt-10'>
         {
           ProductsJson.map((item, i) => (
-            <NavLink to={`/detail/${item.id}`} className='border border-[#FBCFE8] hover:bg-pink-200  rounded-3xl' key={i} >
-              <div>
+            <div  className='bg-[#ffffff] p-3 rounded-3xl ' key={i} >
+              <div className='relative   '>
                 <img src={item.image} alt=""  className="" />
-              </div>
-              <div className='text-center mt-2 p-1 ' >
-                <h3 className='font-medium text-xl' >{item.title}</h3>
-                <div className="review flex justify-center mt-2">
-                  <IoIosStar color='#FAAF00' size={23} />
-                  <IoIosStar color='#FAAF00' size={23} />
-                  <IoIosStar color='#FAAF00' size={23} />
-                  <CiStar className='' size={23} />
-                  <span className='border border-t-0 border-b-0 rounded border-[#000] pl-1 pr-1 '>44368</span>
+                <div className='absolute top-1.5 right-1.5 bg-white flex items-center justify-center gap-1 w-[41px] h-[27px] rounded-[100px] '>
+                  <img src="./public/star.png" alt=""  className='w-[12px] h-[12px] '/>
+                  <p className='text-[11px] font-[400]' >4.5</p>
                 </div>
-                <h3 className='fw-bold text-lg font-bold mt-3' >{item.subtitle}</h3>
+              </div>
+              <div className=' mt-2 p-1 ' >
+                <h3 className=' text-[16px] text-[#000000] font-[500] flex justify-between' >{item.title} <span className='text-[14px] font-[600] text-[#E10983]' >${item.price}</span></h3>
+               
+                
                 <p className='text-[14px] mt-2 mb-2 ' >Our best-selling oil control routine that clears blemishes while helping to balance the skin's natural oils</p>
               </div>
-            </NavLink>
+              <button onClick={() => navigate(`/detail/${item.id}`)} className='w-full h-[44px] rounded-[100px]  text-[#FFFFFF]  text-[16px] font-[500] new-gradient-btn' >
+                <p>Buy Now</p>
+              </button>
+            </div>
           ))
         }
       </div>
@@ -36,3 +41,4 @@ export default function Products() {
     </div>
   )
 }
+ 

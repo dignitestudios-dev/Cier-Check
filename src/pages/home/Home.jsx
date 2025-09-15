@@ -14,18 +14,19 @@ import MeetOurBoard from '../../component/Home/MeetOurBoard'
 
 const Home = () => {
     return (
-        <div>
+        <div className='bg-[#F9FAFA]' >
             <Hero />
-            <Helping />
+            
             <Products />
-            <QuizBar />
-            <Community />
+            <Helping />
+            {/* <Community /> */}
             {/* <ProductCategory/> */}
             <BecomeAware />
+            <QuizBar />
             {/* <HappyStories /> */}
-            <Reviews />
             <MeetOurBoard />
-            <CallUs />
+            <Reviews />
+            {/* <CallUs /> */}
             {/* <Confidence /> */}
         </div>
     )

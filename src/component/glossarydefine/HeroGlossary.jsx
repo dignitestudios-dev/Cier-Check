@@ -4,6 +4,7 @@ import { Link } from 'react-router-dom'
 import Navbar from '../Global/Navbar'
 import Navbar2 from '../Global/Navbar2'
 import { ThemeContext } from '../context/ThemeContext'
+import { CiSearch } from 'react-icons/ci'
 
 
 
@@ -12,42 +13,48 @@ const HeroGlossary = () => {
     return (
         <div>
 
-            <div className={`py-10 horizontal-padding cancer-glossery ${theme === "light" ? 'bg-white text-black' : 'bg-dark'}`}  >
-                <div className='w-full flex items-center border border-pink-600 rounded-sm '>
-                    <input type="text" className={`py-3 outline-none w-full px-5 ${theme === "light" ? 'bg-white text-black' : 'bg-dark text-white'}`} />
-                    <Link to={'/admin'} className='px-5 bg-pink-600 py-3 rounded-r-sm'> <BsFillSearchHeartFill className='w-6 h-6 text-white' /></Link>
-                </div>
-                <div className='w-full py-10 flex flex-col items-center gap-9 justify-center'>
-                    <h1 className='text-5xl font-bold pink-text'>Welcome to Glossary Define Your Solution</h1>
-                    <div className='w-52 lg:w-full flex  justify-center gap-2 pink-text text-lg flex-wrap'>
-                        <a href="#A">[A]</a>
-                        <a href="#B">[B]</a>
-                        <a href="#C">[C]</a>
-                        <a href="#E">[E]</a>
-                        <a href="#F">[F]</a>
-                        <a href="#G">[G]</a>
-                        <a href="#H">[H]</a>
-                        <a href="#I">[I]</a>
-                        <a href="#J">[J]</a>
-                        <a href="#K">[K]</a>
-                        <a href="#L">[L]</a>
-                        <a href="#M">[M]</a>
-                        <a href="#N">[N]</a>
-                        <a href="#O">[O]</a>
-                        <a href="#P">[P]</a>
-                        <a href="#Q">[Q]</a>
-                        <a href="#R">[R]</a>
-                        <a href="#S">[S]</a>
-                        <a href="#T">[T]</a>
-                        <a href="#U">[U]</a>
-                        <a href="#V">[V]</a>
-                        <a href="#W">[W]</a>
-                        <a href="#">[X]</a>
-                        <a href="#">[Y]</a>
-                        <a href="#">[Z]</a>
+            
+                
+                    <div className='w-full h-[500px] Cancer-Glossary-bg horizontal-padding flex flex-col justify-center gap-3 bg-[#F460910A]'>
+                        <h2 className='text-[40px] font-bold text-[#FFFFFF]'>Glossary of Solutions – Define, Learn, Apply</h2>
+                        <p className='text-[#FFFFFF] text-[16px] font-[400]'>Explore our complete glossary of terms, organized from A to Z. Find clear explanations <br /> and solutions that help you understand and define exactly what you need.</p>
+                        <div className=' w-[400px] h-[60px] rounded-[30px] px-3  text-[#FFFFFF] flex items-center gap-2 bg-[#FFCBE9]'>
+                        <CiSearch className='text-[#CF1D67] w-[24px] h-[24px]' />
+                     <input type="text" placeholder='Search'  className='  text-[16px] font-[400] bg-transparent placeholder:text-[#CF1D67] ' />
+                        </div>
+                    </div>
+              
+                <div className='w-full py-10 flex flex-col items-center gap-9 justify-center  horizontal-padding '>
+                    
+                    <div className='w-52 lg:w-full flex  justify-center gap-9  text-[24px] font-[400] flex-wrap'>
+                        <a className='text-[#181818B2]' href="#A">A</a>
+                        <a className='text-[#181818B2]' href="#B">B</a>
+                        <a className='text-[#181818B2]' href="#C">C</a>
+                        <a className='text-[#181818B2]' href="#E">E</a>
+                        <a className='text-[#181818B2]' href="#F">F</a>
+                        <a className='text-[#181818B2]' href="#G">G</a>
+                        <a className='text-[#181818B2]' href="#H">H</a>
+                        <a className='text-[#181818B2]' href="#I">I</a>
+                        <a className='text-[#181818B2]' href="#J">J</a>
+                        <a className='text-[#181818B2]' href="#K">K</a>
+                        <a className='text-[#181818B2]' href="#L">L</a>
+                        <a className='text-[#181818B2]' href="#M">M</a>
+                        <a   className='text-[#181818B2]' href="#N">N</a>
+                        <a   className='text-[#181818B2]' href="#O">O</a>
+                        <a   className='text-[#181818B2]' href="#P">P</a>
+                        <a   className='text-[#181818B2]' href="#Q">Q</a>
+                        <a   className='text-[#181818B2]' href="#R">R</a>
+                        <a   className='text-[#181818B2]' href="#S">S</a>
+                        <a   className='text-[#181818B2]' href="#T">T</a>
+                        <a   className='text-[#181818B2]' href="#U">U</a>
+                        <a   className='text-[#181818B2]' href="#V">V</a>
+                        <a   className='text-[#181818B2]' href="#W">W</a>
+                        <a   className='text-[#181818B2]' href="#X">X</a>
+                        <a   className='text-[#181818B2]' href="#Y">Y</a>
+                        <a   className='text-[#181818B2]' href="#Z">Z</a>
                     </div>
                 </div>
-                <div className='w-full flex flex-col gap-3'>
+                <div className='w-full flex flex-col gap-3 horizontal-padding '>
                     <h2 className='text-6xl font-bold' id='A'>A</h2>
                     <h4 className='text-2xl font-bold'>abdomen [AB-duh-men]</h4>
                     <p>The part of the body between the chest and the pelvis. It includes the stomach (with the lower part of the esophagus), small and large intestines, liver, gallbladder, spleen, pancreas, and other organs.</p>
@@ -2368,7 +2375,9 @@ const HeroGlossary = () => {
 
 
                 </div>
-            </div>
+        
+           
+            
         </div>
     )
 }

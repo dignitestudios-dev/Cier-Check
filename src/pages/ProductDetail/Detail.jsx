@@ -7,9 +7,9 @@ import Benifits from "../../component/ProductDetail/Benifits";
 
 export default function AllProduct() {
   return (
-    <>
+    <div className='bg-[#F9FAFA]' >
       <DetailSection />
       <Benifits />
-    </>
+    </div>
   );
 }

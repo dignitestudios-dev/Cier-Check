@@ -16,7 +16,7 @@ const DonateButton = () => {
     }
 
     return (
-        <button onClick={buyfunction} className="  rounded-lg  btn  ">
+        <button onClick={buyfunction} className="  rounded-lg    ">
             {loading ? <div className="loader z-10"></div> : 'Donate Now'}
         </button>
     )

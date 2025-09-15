@@ -4,8 +4,9 @@ import { CiStar } from "react-icons/ci";
 import { IoIosStar } from "react-icons/io";
 import { ProductsJson } from "../../constants/Products";
 import Drawer from "./Drawer";
-import { json, NavLink } from "react-router-dom";
+import { json, NavLink, useNavigate } from "react-router-dom";
 export default function ShopProduct() {
+  const navigate = useNavigate();
   const {
     theme,
     setDrawOpen,
@@ -40,53 +41,32 @@ export default function ShopProduct() {
 
   return (
     <div
-      className={`w-full flex flex-col items-center  justify-center text-center gap-6 pb-10  horizontal-padding ${
-        theme === "light" ? "bg-white text-black" : "bg-dark"
-      }`}
+      className={`w-full flex flex-col gap-6 py-10  horizontal-padding`}
     >
-      <h2 className="text-center section-heading">All Products</h2>
-      <div className="w-full grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mt-10">
-        {ProductsJson.map((item, i) => (
-          <div className="border border-[#FBCFE8] " key={i}>
-            <div>
-              <img src={item.image} alt="" />
-            </div>
-            <div className="text-center mt-2 p-1">
-              <h3 className="font-medium text-xl">
-                {item?.title}
-                <br />
-                <span className="text-pink-400 mt-2 mb-2">
-                  {" "}
-                  resurface + brighten
-                </span>
-              </h3>
-              <div className="review flex justify-center mt-2">
-                <IoIosStar color="#FAAF00" size={23} />
-                <IoIosStar color="#FAAF00" size={23} />
-                <IoIosStar color="#FAAF00" size={23} />
-                <CiStar className="" size={23} />
-                <span className="pl-1 pr-1 text-pink-500 ">1 Review</span>
-              </div>
-              <p className="text-[14px] mt-2 mb-2 ">
-                <span className="text-red-400 font-bold">${item?.price}</span>
-                <del className="font-bold ms-2"> $150 </del>
-              </p>
-              <button
-                onClick={() => addProduct(item)}
-                className="bg-pink-600 px-5 py-3 rounded-lg border-2 border-pink-600 text-white hover:text-pink-600 hover:bg-white duration-300 transition-all mt-2 mb-4  "
-              >
-                Add To Cart
-              </button>
-              <NavLink
-                className="bg-pink-600 ml-2 px-5 py-3 rounded-lg border-2 border-pink-600 text-white hover:text-pink-600 hover:bg-white duration-300 transition-all mt-2 mb-4  "
-                to={`/detail/${item.id}`}
-              >
-                Detail{" "}
-              </NavLink>
-            </div>
-          </div>
-        ))}
+      <h2 className=" section-heading">Choose the dermatologist-developed routine for your unique skin</h2>
+      <div className="w-full grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 ">
+          {ProductsJson.map((item, i) => (
+                    <div  className='bg-[#ffffff] p-3 rounded-3xl ' key={i} >
+                      <div className='relative   '>
+                        <img src={item.image} alt=""  className="" />
+                        <div className='absolute top-1.5 right-1.5 bg-white flex items-center justify-center gap-1 w-[41px] h-[27px] rounded-[100px] '>
+                          <img src="./public/star.png" alt=""  className='w-[12px] h-[12px] '/>
+                          <p className='text-[11px] font-[400]' >4.5</p>
+                        </div>
+                      </div>
+                      <div className=' mt-2 p-1 ' >
+                        <h3 className=' text-[16px] text-[#000000] font-[500] flex justify-between' >{item.title} <span className='text-[14px] font-[600] text-[#E10983]' >${item.price}</span></h3>
+                       
+                        
+                        <p className='text-[14px] mt-2 mb-2 ' >Our best-selling oil control routine that clears blemishes while helping to balance the skin's natural oils</p>
+                      </div>
+                      <button onClick={() => navigate(`/detail/${item.id}`)} className='w-full h-[44px] rounded-[100px]  text-[#FFFFFF]  text-[16px] font-[500] new-gradient-btn' >
+                        <p>Buy Now</p>
+                      </button>
+                    </div>
+                  ))  }
       </div>
+
     </div>
   );
 }

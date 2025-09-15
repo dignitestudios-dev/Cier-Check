@@ -5,7 +5,7 @@ import CallUs from "../../component/Home/CallUs";
 
 const BreastCancer = () => {
   return (
-    <div>
+    <div className='bg-[#F9FAFA]' >
       <Hero />
       <HeroBreastCancer />
       <CallUs />

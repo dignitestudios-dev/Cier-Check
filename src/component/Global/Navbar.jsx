@@ -8,12 +8,20 @@ import { ThemeContext } from "../context/ThemeContext";
 import { FaCartShopping, FaUserDoctor } from "react-icons/fa6";
 
 const Navbar = () => {
-  const { theme, setDrawOpen, isDrawOpen, CartItemLeng, setOpenDrawer, openDrawer, products } = useContext(ThemeContext)
+  const {
+    theme,
+    setDrawOpen,
+    isDrawOpen,
+    CartItemLeng,
+    setOpenDrawer,
+    openDrawer,
+    products,
+  } = useContext(ThemeContext);
   const [open, setOpen] = useState(false);
+  const [activeLink, setActiveLink] = useState("Home");
   const handlenav = () => {
     setOpen(!open);
   };
-
 
   const [isScrolled, setIsScrolled] = useState(false);
 
@@ -37,64 +45,106 @@ const Navbar = () => {
   }, []);
 
   return (
-    <div className={`w-full  transition-all duration-200 ${theme === "light" ? 'bg-white text-black shadow-lg' : 'bg-black'}`}>
-      <div className={`relative w-full h-20  lg:h-24 bg-black lg:bg-transparent flex items-center z-50 justify-between horizontal-padding shadow-lg ${theme === 'light' ? 'bg-white' : 'bg-black'}`}>
+    <div
+      className={`w-full  transition-all duration-200 ${
+        theme === "light" ? "bg-white text-black shadow-lg" : "bg-black"
+      }`}
+    >
+      <div
+        className={`relative w-full h-20  lg:h-[85px] bg-black lg:bg-transparent flex items-center z-50 justify-between shadow-lg horizontal-padding`}
+      >
         <div className="">
           <Link to={"/"}>
-            <img src="/logo-2.png" className=" h-[5.5rem]" alt="" />
+            <img src="/logo.png" className=" h-[85px]" alt="" />
           </Link>
         </div>
-        <div className="navbar ">
-          <Link to={"/"} className={`text-size  hover:text-pink-600 ${theme === "light" ? ' text-black' : ' text-white'}`}>
-            Home
-          </Link>
-          <Link to={"/product"} className={`text-size  hover:text-pink-600 ${theme === "light" ? ' text-black' : ' text-white'}`}>
-            Shop
-          </Link>
-          {/* <Link to={"/offers"} className={`text-size  hover:text-pink-600 ${theme === "light" ? ' text-black' : ' text-white'}`}>
-            Offers
-          </Link> */}
-          <Link
-            to={"/breast-cancer"}
-            className={`text-size  hover:text-pink-600 ${theme === "light" ? ' text-black' : ' text-white'}`}
-          >
-            Breast Cancer Awareness
-          </Link>
-          <Link
-            to={"/cancer-glossery"}
-            className={`text-size  hover:text-pink-600${theme === "light" ? ' text-black' : ' text-white'}`}
-          >
-            Cancer Glossary
-          </Link>
-          <Link
-            to={"/contact-us"}
-            className={`text-size  hover:text-pink-600${theme === "light" ? ' text-black' : ' text-white'}`}
-          >
-            Contact Us
-          </Link>
+        <div
+          className="navbar "
+          onClick={(e) => setActiveLink(e.target.textContent)}
+        >
+          <div className="flex flex-col items-center ">
+            <Link
+              to={"/"}
+              className={`text-[12px] font-[600]  hover:text-pink-600 ${
+                activeLink === "Home" ? " text-pink-600 " : " text-[#181818]"
+              }`}
+            >
+              Home
+            </Link>
+            {activeLink === "Home" ? (
+              <span className="w-full h-[3px] new-gradient-btn rounded-full"></span>
+            ) : null}
+          </div>
+          <div className="flex flex-col items-center ">
+            <Link
+              to={"/product"}
+              onClick={(e) => setActiveLink(e.target.textContent)}
+              className={`text-[12px] font-[600]  hover:text-pink-600 ${
+                activeLink === "Shop" ? " text-pink-600 " : " text-[#181818]"
+              }`}
+            >
+              Shop
+            </Link>
+            {activeLink === "Shop" ? (
+              <span className="w-full h-[3px] new-gradient-btn rounded-full"></span>
+            ) : null}
+          </div>
+          <div className="flex flex-col items-center ">
+            <Link
+              to={"/breast-cancer"}
+              onClick={(e) => setActiveLink(e.target.textContent)}
+              className={`text-[12px] font-[600]  hover:text-pink-600 ${
+                activeLink === "Breast Cancer Awareness"
+                  ? " text-pink-600"
+                  : " text-[#181818]"
+              }`}
+            >
+             Breast Cancer
+            </Link>
+            {activeLink === "Breast Cancer Awareness" ? (
+              <span className="w-full h-[3px] new-gradient-btn rounded-full"></span>
+            ) : null}
+          </div>
+          <div className="flex flex-col items-center ">
+            <Link
+              to={"/cancer-glossery"}
+              onClick={(e) => setActiveLink(e.target.textContent)}
+              className={`text-[12px] font-[600]  hover:text-pink-600 ${
+                activeLink === "Cancer Glossary"
+                  ? " text-pink-600"
+                  : " text-[#181818]"
+              }`}
+            >
+              Cancer Glossary
+            </Link>
+            {activeLink === "Cancer Glossary" ? (
+              <span className="w-full h-[3px] new-gradient-btn rounded-full"></span>
+            ) : null}
+          </div>
+          <div className="flex flex-col items-center ">
+            <Link
+              to={"/contact-us"}
+              onClick={(e) => setActiveLink(e.target.textContent)}
+              className={`text-[12px] font-[600]  hover:text-pink-600 ${
+                activeLink === "Contact Us" ? " text-pink-600" : " text-[#181818]"
+              }`}
+            >
+             Contact Us
+            </Link>
+            {activeLink === "Contact Us" ? (
+              <span className="w-full h-[3px] new-gradient-btn rounded-full"></span>
+            ) : null}
+          </div>
+        </div>
+        <div className="">
+          {" "}
           <Link
             to={"/startquestionnaire"}
-            className="bg-pink-600 px-5 py-3 rounded-lg border-2 border-pink-600 text-white hover:text-pink-600 hover:bg-white duration-300 transition-all"
+            className="new-gradient-btn py-3 px-5 rounded-[26px]  text-white  text-[14px] font-[600] "
           >
-            Start Questionnaire
+           Start Questionnaire
           </Link>
-          {/* <Link to={"/sign"}>
-            <div className="py-2 px-2 flex items-center justify-center rounded-lg bg-pink-600">
-
-              <FaUserDoctor className="w-7 h-7  text-white" />
-            </div>
-          </Link> */}
-
-          {/* <div className='text-center flex justify-center gap-6'>
-            <button type='button' onClick={() => setOpenDrawer(!openDrawer)} className='relative inline-flex items-center p-3 text-sm font-medium text-center text-white bg-pink-600 rounded-lg '>
-              <FaCartShopping size={20} />
-              <div className='absolute inline-flex items-center justify-center py-0.5 px-1.5 text-xs font-normal text-white bg-red-500 border-2 border-white rounded-full -top-3 -left-3'>{products.length}</div>
-            </button>
-          </div> */}
-          <ThemeTogglerButton />
-
         </div>
-
         <div className="lg:hidden ">
           <button
             className="border-2 border-pink-600 bg-white px-2 py-2"
@@ -103,12 +153,18 @@ const Navbar = () => {
             <RiMenu3Fill />{" "}
           </button>
         </div>
+      </div>
 
-      </div >
-
-
-      <div className={`w-full h-screen bg-transparent  absolute inset-0 z-50 ${open ? 'translate-x-0' : 'translate-x-full'} transition-all duration-500`}>
-        <div className={`h-full ${theme === 'light' ? 'bg-white' : 'bg-dark'} w-[70%] float-end p-4`}>
+      <div
+        className={`w-full h-screen bg-transparent  absolute inset-0 z-50 ${
+          open ? "translate-x-0" : "translate-x-full"
+        } transition-all duration-500`}
+      >
+        <div
+          className={`h-full ${
+            theme === "light" ? "bg-white" : "bg-dark"
+          } w-[70%] float-end p-4`}
+        >
           <div className="w-full flex items-center justify-between">
             <button
               className={`border-2 border-pink-600 px-2 py-1`}
@@ -120,36 +176,51 @@ const Navbar = () => {
           </div>
 
           <div className="w-full flex flex-col items-start pt-10">
-            <Link to={"/"} className={`text-size ${theme === "light" ? 'text-black' : 'text-white'} hover:text-pink-600 border-b w-full py-4 font-medium`}>
+            <Link
+              to={"/"}
+              className={`text-size ${
+                theme === "light" ? "text-black" : "text-white"
+              } hover:text-pink-600 border-b w-full py-4 font-medium`}
+            >
               Home
             </Link>
             <Link
               to={"/breast-cancer"}
-              className={`text-size   ${theme === "light" ? 'text-black' : 'text-white'} hover:text-pink-600 border-b w-full py-4 font-medium`}
+              className={`text-size   ${
+                theme === "light" ? "text-black" : "text-white"
+              } hover:text-pink-600 border-b w-full py-4 font-medium`}
             >
               Breast Cancer Awareness
             </Link>
             <Link
               to={"/product"}
-              className={`text-size  ${theme === "light" ? 'text-black' : 'text-white'} hover:text-pink-600 border-b w-full py-4 font-medium`}
+              className={`text-size  ${
+                theme === "light" ? "text-black" : "text-white"
+              } hover:text-pink-600 border-b w-full py-4 font-medium`}
             >
               Shop
             </Link>
             <Link
               to={"/offers"}
-              className={`text-size  ${theme === "light" ? 'text-black' : 'text-white'} hover:text-pink-600 border-b w-full py-4 font-medium`}
+              className={`text-size  ${
+                theme === "light" ? "text-black" : "text-white"
+              } hover:text-pink-600 border-b w-full py-4 font-medium`}
             >
               Offers
             </Link>
             <Link
               to={"/cancer-glossery"}
-              className={`text-size  ${theme === "light" ? 'text-black' : 'text-white'} hover:text-pink-600 border-b w-full py-4 font-medium`}
+              className={`text-size  ${
+                theme === "light" ? "text-black" : "text-white"
+              } hover:text-pink-600 border-b w-full py-4 font-medium`}
             >
               Cancer Glossary
             </Link>
             <Link
               to={"/contact-us"}
-              className={`text-size  ${theme === "light" ? 'text-black' : 'text-white'} hover:text-pink-600 border-b w-full py-4 font-medium`}
+              className={`text-size  ${
+                theme === "light" ? "text-black" : "text-white"
+              } hover:text-pink-600 border-b w-full py-4 font-medium`}
             >
               Contact Us
             </Link>
@@ -162,9 +233,7 @@ const Navbar = () => {
           </div>
         </div>
       </div>
-
-
-    </div >
+    </div>
   );
 };
 

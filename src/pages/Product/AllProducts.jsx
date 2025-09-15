@@ -5,10 +5,10 @@ import Banner from '../../component/Product/Banner'
 
 export default function AllProduct() {
   return (
-    <>
+    <div className='bg-[#F9FAFA]' >
 
       <Banner />
       <ShopProduct />
-    </>
+    </div>
   )
 }
