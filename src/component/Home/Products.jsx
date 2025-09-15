@@ -30,7 +30,7 @@ export default function Products() {
                 
                 <p className='text-[14px] mt-2 mb-2 ' >Our best-selling oil control routine that clears blemishes while helping to balance the skin's natural oils</p>
               </div>
-              <button onClick={() => navigate(`/detail/${item.id}`)} className='w-full h-[44px] rounded-[100px]  text-[#FFFFFF]  text-[16px] font-[500] new-gradient-btn' >
+              <button  className='w-full h-[44px] rounded-[100px]  text-[#FFFFFF]  text-[16px] font-[500] new-gradient-btn' >
                 <p>Buy Now</p>
               </button>
             </div>

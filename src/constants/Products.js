@@ -4,7 +4,7 @@ export const ProductsJson =
     [
         {
             id: 1,
-            image: "public/new-product.png",
+            image: "/new-product.png",
             title: "Proactiv Solution",
             subtitle: "For oily/combo skin",
             text: "Our best-selling oil control routine that clears blemishes while helping to balance the skin's natural oils.",
@@ -13,7 +13,7 @@ export const ProductsJson =
         },
         {
             id: 2,
-            image: "public/new-product.png",
+            image: "/new-product.png",
             title: "Proactiv Solution",
             subtitle: "For oily/combo skin",
             text: "Our best-selling oil control routine that clears blemishes while helping to balance the skin's natural oils.",
@@ -22,7 +22,7 @@ export const ProductsJson =
         },
         {
             id: 3,
-            image: "public/new-product.png",
+            image: "/new-product.png",
             title: "Proactiv Solution",
             subtitle: "For oily/combo skin",
             text: "Our best-selling oil control routine that clears blemishes while helping to balance the skin's natural oils.",
@@ -35,7 +35,7 @@ export const ProductsJson =
         },
         {
             id: 3,
-            image: "public/new-product.png",
+            image: "/new-product.png",
             title: "Proactiv Solution",
             subtitle: "For oily/combo skin",
             text: "Our best-selling oil control routine that clears blemishes while helping to balance the skin's natural oils.",

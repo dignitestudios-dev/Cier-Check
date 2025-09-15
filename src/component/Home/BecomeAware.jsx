@@ -16,8 +16,8 @@ const BecomeAware = () => {
   });
 const Aware = [
     {
-        icon: "./public/Reliable.png",
-        iconpink: "./public/Reliablepink.png",
+        icon: "public/Reliable.png",
+        iconpink: "public/Reliablepink.png",
         title: "Reliable Accuracy",
         description: "Trust in our “Breast Cancer Check” device for accurate results, ensuring peace of mind in your proactive healthcare journey.",
     } ,
@@ -35,7 +35,7 @@ const Aware = [
     },
     {
       icon: "public/Private.png",
-      iconpink: "public/Privatepink.png",
+      iconpink: "public/Privatepink.png", 
       title: "Private and Discreet",
       description: "Prioritize privacy with our discreet “Breast Cancer Check” device, allowing you to perform checks in the comfort of your space with confidentiality.",
     },
