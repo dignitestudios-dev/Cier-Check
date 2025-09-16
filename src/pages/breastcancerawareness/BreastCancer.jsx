@@ -8,7 +8,7 @@ const BreastCancer = () => {
     <div className='bg-[#F9FAFA]' >
       <Hero />
       <HeroBreastCancer />
-      <CallUs />
+
     </div>
   );
 };
