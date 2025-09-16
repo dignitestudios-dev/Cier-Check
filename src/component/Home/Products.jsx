@@ -30,7 +30,7 @@ export default function Products() {
                 
                 <p className='text-[14px] mt-2 mb-2 text-start ' >{item.text}</p>
               </div>
-              <button  className='w-full h-[44px] rounded-[100px]  text-[#FFFFFF]  text-[16px] font-[500] new-gradient-btn' >
+              <button onClick={() => navigate(`/detail/1`)}  className='w-full h-[44px] rounded-[100px]  text-[#FFFFFF]  text-[16px] font-[500] new-gradient-btn' >
                 <p>Buy Now</p>
               </button>
             </div>

@@ -68,7 +68,7 @@ export default function ShopProduct() {
                 {item.text}
               </p>
             </div>
-            <button className="w-full h-[44px] rounded-[100px]  text-[#FFFFFF]  text-[16px] font-[500] new-gradient-btn">
+            <button onClick={() => navigate(`/detail/1`)} className="w-full h-[44px] rounded-[100px]  text-[#FFFFFF]  text-[16px] font-[500] new-gradient-btn">
               <p>Buy Now</p>
             </button>
           </div>
