@@ -95,7 +95,7 @@ const Navbar = () => {
               to={"/breast-cancer"}
               onClick={(e) => setActiveLink(e.target.textContent)}
               className={`text-[12px] font-[600]  hover:text-pink-600 ${
-                activeLink === "Breast Cancer Awareness"
+                activeLink === "Breast Cancer "
                   ? " text-pink-600"
                   : " text-[#181818]"
               }`}

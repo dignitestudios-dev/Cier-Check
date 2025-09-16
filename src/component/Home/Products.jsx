@@ -28,7 +28,7 @@ export default function Products() {
                 <h3 className=' text-[16px] text-[#000000] font-[500] flex justify-between' >{item.title} <span className='text-[14px] font-[600] text-[#E10983]' >${item.price}</span></h3>
                
                 
-                <p className='text-[14px] mt-2 mb-2 ' >Our best-selling oil control routine that clears blemishes while helping to balance the skin's natural oils</p>
+                <p className='text-[14px] mt-2 mb-2 text-start ' >{item.text}</p>
               </div>
               <button  className='w-full h-[44px] rounded-[100px]  text-[#FFFFFF]  text-[16px] font-[500] new-gradient-btn' >
                 <p>Buy Now</p>
