@@ -12,6 +12,7 @@ import Offer from "./pages/offer/Offer";
 import SignIn from "./pages/auth/SignIn";
 import SignUp from "./pages/auth/SignUp";
 import ForgotPassword from "./pages/auth/ForgotPassword";
+import AboutUs from "./pages/aboutus/AboutUs";
 
 
 const Home = lazy(() => import("./pages/home/Home"));
@@ -54,6 +55,10 @@ function App() {
         <Route
           path="/detail/:id"
           element={<Layout pages={<Detail />} />}
+        />
+        <Route
+          path="/about-us"
+          element={<Layout pages={<AboutUs />} />}
         />
         <Route
           path="/checkout"

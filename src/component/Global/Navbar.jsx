@@ -6,6 +6,7 @@ import ThemeTogglerButton from "./ThemeTogglerButton";
 import { IoClose } from "react-icons/io5";
 import { ThemeContext } from "../context/ThemeContext";
 import { FaCartShopping, FaUserDoctor } from "react-icons/fa6";
+import { CiShoppingCart } from "react-icons/ci";
 
 const Navbar = () => {
   const {
@@ -121,6 +122,17 @@ const Navbar = () => {
               <span className="w-full h-[3px] new-gradient-btn rounded-full"></span>
             ) : null}
           </div>
+          <div>
+          <Link
+              to={"/about-us"}
+              onClick={(e) => setActiveLink(e.target.textContent)}
+              className={`text-[12px] font-[600]  hover:text-pink-600 ${
+                activeLink === "About Us" ? " text-pink-600" : " text-[#181818]"
+              }`}
+            >
+             About Us
+            </Link>
+          </div>
           <div className="flex flex-col items-center ">
             <Link
               to={"/contact-us"}
@@ -135,8 +147,11 @@ const Navbar = () => {
               <span className="w-full h-[3px] new-gradient-btn rounded-full"></span>
             ) : null}
           </div>
+          <div onClick={() => setOpenDrawer(!openDrawer)} className={`cursor-pointer text-[12px] font-[600] w-[40px] h-[40px] items-center justify-center flex rounded-[100px]   hover:text-pink-600  `}>
+          <FaCartShopping size={25} />
+          </div>
         </div>
-        <div className="">
+        <div className=" flex items-center gap-5">
           {" "}
           <Link
             to={"/startquestionnaire"}
@@ -144,6 +159,9 @@ const Navbar = () => {
           >
            Start Questionnaire
           </Link>
+          <button className="new-gradient-btn py-3 px-5 rounded-[26px]  text-white  text-[14px] font-[600] ">
+            Donate Now
+          </button>
         </div>
         <div className="lg:hidden ">
           <button

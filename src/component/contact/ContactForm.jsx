@@ -68,15 +68,15 @@ const ContactForm = () => {
 
 
   return (
-    <div className={`w-full ${theme === "light" ? "bg-white" : "bg-black"}`}>
+    <div className={`w-full $`}>
       <div className="w-full contact-header">
 
         <div className="w-full  gap-12 h-[80vh] horizontal-padding">
-          <div className="flex h-full flex-col items-center justify-center   gap-6">
+          <div className="flex h-full flex-col justify-center   gap-6">
             <h2 className="text-4xl md:text-6xl xl:text-6xl font-bold text-white">
               Contact Us
             </h2>
-            <p className="text-lg text-white text-center">
+            <p className="text-lg text-white">
               Kindly reach us to get the fastest response and treatment.
             </p>
           </div>

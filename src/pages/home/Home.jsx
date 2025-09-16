@@ -11,6 +11,7 @@ import QuizBar from '../../component/Home/QuizBar'
 import ProductCategory from '../../component/Home/Category'
 import Community from '../../component/Home/Community'
 import MeetOurBoard from '../../component/Home/MeetOurBoard'
+import AboutUs from '../../component/Home/AboutUs'
 
 const Home = () => {
     return (
@@ -22,9 +23,10 @@ const Home = () => {
             {/* <Community /> */}
             {/* <ProductCategory/> */}
             <BecomeAware />
-            <QuizBar />
+            <AboutUs />
+            {/* <QuizBar /> */}
             {/* <HappyStories /> */}
-            <MeetOurBoard />
+            {/* <MeetOurBoard /> */}
             <Reviews />
             {/* <CallUs /> */}
             {/* <Confidence /> */}

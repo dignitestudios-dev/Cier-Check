@@ -6,8 +6,8 @@ import { ThemeContext } from "../context/ThemeContext";
 const FindUsHere = () => {
   const { theme } = useContext(ThemeContext)
   return (
-    <div className={`${theme === "light" ? 'bg-white text-black' : 'bg-dark'}`}>
-      <div className={`w-full flex flex-col pt-20 px-6 lg:px-24 ${theme === "light" ? 'bg-white text-black' : 'bg-dark'}`}>
+    <div className={``}>
+      <div className={`w-full flex flex-col pt-20 px-6 lg:px-24 `}>
         <h1 className=" text-5xl font-bold">Find Us Here</h1>
       </div>
       <div className="w-full grid grid-cols-1 lg:grid-cols-3 py-8 gap-10 px-6 lg:px-24">

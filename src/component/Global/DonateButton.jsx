@@ -6,7 +6,7 @@ const DonateButton = () => {
 
     const buyfunction = async () => {
         setLoading(!loading)
-        const response = await axios.post('http://localhost:3000/payment')
+        const response = await axios.post('/payment')
         if (response && response.status === 200) {
 
             window.location.href = response.data.url
