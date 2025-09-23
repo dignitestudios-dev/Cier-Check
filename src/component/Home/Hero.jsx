@@ -6,9 +6,36 @@ import { useInView } from "react-intersection-observer";
 import DonateButton from "../Global/DonateButton";
 import { div } from "framer-motion/client";
 import { useNavigate } from "react-router-dom";
+import { loadStripe } from "@stripe/stripe-js";
 
+const stripePromise = loadStripe(import.meta.env.VITE_STRIPE_PUBLISHABLE_KEY);
 const Hero = () => {
     const navigate = useNavigate();
+     const handleDonate = async () => {
+    try {
+      const stripe = await stripePromise;
+      if (!stripe) {
+        console.error("Stripe failed to load");
+        return;
+      }
+
+      const result = await stripe.redirectToCheckout({
+
+        lineItems: [{ price: "price_1SAUmmF0T0NtydYH3jS5aHKl", quantity: 1 }],
+        mode: "payment",
+        successUrl: window.location.origin + "/success",
+        cancelUrl: window.location.origin + "/cancel",
+      });
+
+      if (result && result.error) {
+        console.error(result.error.message);
+        
+      }
+    } catch (err) {
+      console.error("Donate error:", err);
+    }
+  };
+
   return (
     <main className="w-full  flex hero h-[90vh] ">
       <div className=" w-[80%] flex flex-col gap-5  text-white horizontal-padding pt-32">
@@ -24,7 +51,7 @@ const Hero = () => {
           their future and the lives of their loved ones.
         </p>
         <div className="lg:mt-3 flex gap-4">
-          <button onClick={() => navigate("/donate")} className="bg-[#FFCBE9] w-[240px] h-[60px] rounded-[100px]  text-[#CF1D67]  text-[16px] font-[600] ">
+          <button onClick={handleDonate} className="bg-[#FFCBE9] w-[240px] h-[60px] rounded-[100px]  text-[#CF1D67]  text-[16px] font-[600] ">
             Donate Now
           </button>
         </div>

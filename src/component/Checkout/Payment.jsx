@@ -116,12 +116,12 @@ const Payment = () => {
         >
           <div className="w-full flex flex-col items-center justify-center py-3   text-center ">
             <div className="w-full flex flex-col xl:flex-row    justify-between  py-8 px-10 gap-y-6 ">
-              <button className="lg:px-32 bg-yellow-500 py-2 lg:py-4 rounded-full text-xl font-bold text-blue-700">
+              {/* <button className="lg:px-32 bg-yellow-500 py-2 lg:py-4 rounded-full text-xl font-bold text-blue-700">
                 Continue PayPal
               </button>
               <button className="lg:px-32 bg-black py-2 lg:py-4 rounded-full text-xl font-bold text-blue-700">
                 Continue PayPal
-              </button>
+              </button> */}
               <button className=" lg:px-32 bg-pink-500 py-2 lg:py-4 rounded-full text-xl font-bold text-blue-700">
                 Continue PayPal
               </button>

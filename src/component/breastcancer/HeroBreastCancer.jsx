@@ -186,7 +186,7 @@ const HeroBreastCancer = () => {
           allowFullScreen
         ></iframe>
       </div>
-      <div className="w-full px-20">
+      {/* <div className="w-full px-20">
         <iframe
           height="372"
           className="w-full rounded-3xl"
@@ -197,7 +197,7 @@ const HeroBreastCancer = () => {
           referrerPolicy="strict-origin-when-cross-origin"
           allowFullScreen
         ></iframe>
-      </div>
+      </div> */}
     </div>
   );
 };
