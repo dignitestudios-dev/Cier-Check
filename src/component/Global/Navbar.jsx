@@ -7,6 +7,9 @@ import { IoClose } from "react-icons/io5";
 import { ThemeContext } from "../context/ThemeContext";
 import { FaCartShopping, FaUserDoctor } from "react-icons/fa6";
 import { CiShoppingCart } from "react-icons/ci";
+import { loadStripe } from "@stripe/stripe-js";
+
+const stripePromise = loadStripe(import.meta.env.VITE_STRIPE_PUBLISHABLE_KEY);
 
 const Navbar = () => {
   const {
@@ -44,6 +47,30 @@ const Navbar = () => {
       window.removeEventListener("scroll", handleScroll);
     };
   }, []);
+
+  const handleDonate = async () => {
+    try {
+      const stripe = await stripePromise;
+      if (!stripe) {
+        console.error("Stripe failed to load");
+        return;
+      }
+
+      const result = await stripe.redirectToCheckout({
+
+        lineItems: [{ price: "price_1SAUmmF0T0NtydYH3jS5aHKl", quantity: 1 }],
+        mode: "payment",
+        successUrl: window.location.origin + "/success",
+        cancelUrl: window.location.origin + "/cancel",
+      });
+
+      if (result && result.error) {
+        console.error(result.error.message);
+      }
+    } catch (err) {
+      console.error("Donate error:", err);
+    }
+  };
 
   return (
     <div
@@ -100,7 +127,7 @@ const Navbar = () => {
                   : " text-[#181818]"
               }`}
             >
-             Breast Cancer
+              Breast Cancer
             </Link>
             {activeLink === "Breast Cancer Awareness" ? (
               <span className="w-full h-[3px] new-gradient-btn rounded-full"></span>
@@ -123,14 +150,14 @@ const Navbar = () => {
             ) : null}
           </div>
           <div>
-          <Link
+            <Link
               to={"/about-us"}
               onClick={(e) => setActiveLink(e.target.textContent)}
               className={`text-[12px] font-[600]  hover:text-pink-600 ${
                 activeLink === "About Us" ? " text-pink-600" : " text-[#181818]"
               }`}
             >
-             About Us
+              About Us
             </Link>
           </div>
           <div className="flex flex-col items-center ">
@@ -138,17 +165,22 @@ const Navbar = () => {
               to={"/contact-us"}
               onClick={(e) => setActiveLink(e.target.textContent)}
               className={`text-[12px] font-[600]  hover:text-pink-600 ${
-                activeLink === "Contact Us" ? " text-pink-600" : " text-[#181818]"
+                activeLink === "Contact Us"
+                  ? " text-pink-600"
+                  : " text-[#181818]"
               }`}
             >
-             Contact Us
+              Contact Us
             </Link>
             {activeLink === "Contact Us" ? (
               <span className="w-full h-[3px] new-gradient-btn rounded-full"></span>
             ) : null}
           </div>
-          <div onClick={() => setOpenDrawer(!openDrawer)} className={`cursor-pointer text-[12px] font-[600] w-[40px] h-[40px] items-center justify-center flex rounded-[100px]   hover:text-pink-600  `}>
-          <FaCartShopping size={25} />
+          <div
+            onClick={() => setOpenDrawer(!openDrawer)}
+            className={`cursor-pointer text-[12px] font-[600] w-[40px] h-[40px] items-center justify-center flex rounded-[100px]   hover:text-pink-600  `}
+          >
+            <FaCartShopping size={25} />
           </div>
         </div>
         <div className=" flex items-center gap-5">
@@ -157,9 +189,12 @@ const Navbar = () => {
             to={"/startquestionnaire"}
             className="new-gradient-btn py-3 px-5 rounded-[26px]  text-white  text-[14px] font-[600] "
           >
-           Start Questionnaire
+            Start Questionnaire
           </Link>
-          <button className="new-gradient-btn py-3 px-5 rounded-[26px]  text-white  text-[14px] font-[600] ">
+          <button
+            onClick={handleDonate}
+            className="new-gradient-btn py-3 px-5 rounded-[26px]  text-white  text-[14px] font-[600] "
+          >
             Donate Now
           </button>
         </div>

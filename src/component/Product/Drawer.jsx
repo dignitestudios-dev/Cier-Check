@@ -1,7 +1,6 @@
 import React, { useContext, useEffect, useState } from "react";
 import { IoMdClose } from "react-icons/io";
 import { json, NavLink } from "react-router-dom";
-import { ProductsJson } from "../../constants/Products";
 import { ThemeContext } from "../context/ThemeContext";
 import card from "@material-tailwind/react/theme/components/card";
 export default function Drawer() {

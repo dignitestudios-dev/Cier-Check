@@ -13,7 +13,8 @@ import SignIn from "./pages/auth/SignIn";
 import SignUp from "./pages/auth/SignUp";
 import ForgotPassword from "./pages/auth/ForgotPassword";
 import AboutUs from "./pages/aboutus/AboutUs";
-
+import Success from "./pages/success/Success";
+import Cancel from "./pages/cancel/Cancel";
 
 const Home = lazy(() => import("./pages/home/Home"));
 const BreastCancer = lazy(() =>
@@ -48,24 +49,13 @@ function App() {
           path="/startquestionnaire"
           element={<Layout pages={<StartQuestionnaire />} />}
         />
-        <Route
-          path="/product"
-          element={<Layout pages={<AllProduct />} />}
-        />
-        <Route
-          path="/detail/:id"
-          element={<Layout pages={<Detail />} />}
-        />
-        <Route
-          path="/about-us"
-          element={<Layout pages={<AboutUs />} />}
-        />
-        <Route
-          path="/checkout"
-          element={<Layout pages={<Checkout />} />}
-        />
-        <Route path="/admin" element={<Layout pages={<Admin />} />}
-        />
+        <Route path="/product" element={<Layout pages={<AllProduct />} />} />
+        <Route path="/success" element={<Layout pages={<Success />} />} />
+        <Route path="/cancel" element={<Layout pages={<Cancel />} />} />
+        <Route path="/detail/:id" element={<Layout pages={<Detail />} />} />
+        <Route path="/about-us" element={<Layout pages={<AboutUs />} />} />
+        <Route path="/checkout" element={<Layout pages={<Checkout />} />} />
+        <Route path="/admin" element={<Layout pages={<Admin />} />} />
         {/* <Route path="/offers" element={<Layout pages={<Offer />} />}
         /> */}
         {/* <Route path="/sign" element={<Layout pages={<SignIn />} />}
@@ -76,7 +66,6 @@ function App() {
         /> */}
         {/* <Route path="/user-chech-out" element={<Layout pages={<UserCheckOut />} />}
         /> */}
-
       </Routes>
     </Suspense>
   );
