@@ -66,6 +66,7 @@ const Navbar = () => {
 
       if (result && result.error) {
         console.error(result.error.message);
+        
       }
     } catch (err) {
       console.error("Donate error:", err);
