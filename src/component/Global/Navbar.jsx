@@ -196,7 +196,7 @@ const Navbar = () => {
             onClick={handleDonate}
             className="new-gradient-btn py-3 px-5 rounded-[26px]  text-white  text-[14px] font-[600] "
           >
-            Donate Now
+            Contribute
           </button>
         </div>
         <div className="lg:hidden ">

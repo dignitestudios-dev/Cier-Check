@@ -56,7 +56,7 @@ const Reviews = () => {
       <div className="w-full ">
         <div className=" pb-10 relative flex items-center justify-between">
           <h2 className=" w-full flex  section-heading">
-            What Our Patients Say About Us
+          What people say about CIRCheck
           </h2>
           <div className="flex gap-4">
             <button

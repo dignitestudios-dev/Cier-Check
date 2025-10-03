@@ -52,7 +52,7 @@ const Hero = () => {
         </p>
         <div className="lg:mt-3 flex gap-4">
           <button onClick={handleDonate} className="bg-[#FFCBE9] w-[240px] h-[60px] rounded-[100px]  text-[#CF1D67]  text-[16px] font-[600] ">
-            Donate Now
+          Contribute
           </button>
         </div>
       </div>
