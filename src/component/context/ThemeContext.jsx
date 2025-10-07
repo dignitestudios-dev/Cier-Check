@@ -8,6 +8,7 @@ const ThemeProvider = ({ children }) => {
     const [CartItemLeng, setCartItemLeng] = useState(0)
     const [openDrawer, setOpenDrawer] = useState(false)
     const [state, setState] = useState(false)
+    const [showModal, setShowModal] = useState(false)
 
     const toggleTheme = () => {
         if (theme == 'light') {
@@ -73,7 +74,7 @@ const ThemeProvider = ({ children }) => {
 
 
     return (
-        <ThemeContext.Provider value={{ openDrawer, setOpenDrawer, theme, toggleTheme, isDrawOpen, setDrawOpen, setCartItemLeng, state, setState, CartItemLeng, toggleTodo, getTotalPrice, handleQuantityChange, addProduct, deleteTodo, products, calculateSubtotal }}>
+        <ThemeContext.Provider value={{ openDrawer, setOpenDrawer, theme, toggleTheme, isDrawOpen, setDrawOpen, setCartItemLeng, state, setState, CartItemLeng, toggleTodo, getTotalPrice, handleQuantityChange, addProduct, deleteTodo, products, calculateSubtotal, showModal, setShowModal }}>
             {children}
         </ThemeContext.Provider>
     )

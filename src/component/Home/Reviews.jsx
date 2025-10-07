@@ -54,7 +54,7 @@ const Reviews = () => {
   return (
     <div className={`w-full horizontal-padding py-16`}>
       <div className="w-full ">
-        <div className=" pb-10 relative flex items-center justify-between">
+        <div className=" pb-10  flex items-center justify-between">
           <h2 className=" w-full flex  section-heading">
           What people say about CIRCheck
           </h2>

@@ -9,7 +9,7 @@ import { FaCartShopping, FaUserDoctor } from "react-icons/fa6";
 import { CiShoppingCart } from "react-icons/ci";
 import { loadStripe } from "@stripe/stripe-js";
 
-const stripePromise = loadStripe(import.meta.env.VITE_STRIPE_PUBLISHABLE_KEY);
+
 
 const Navbar = () => {
   const {
@@ -20,6 +20,7 @@ const Navbar = () => {
     setOpenDrawer,
     openDrawer,
     products,
+    setShowModal,
   } = useContext(ThemeContext);
   const [open, setOpen] = useState(false);
   const [activeLink, setActiveLink] = useState("Home");
@@ -48,30 +49,7 @@ const Navbar = () => {
     };
   }, []);
 
-  const handleDonate = async () => {
-    try {
-      const stripe = await stripePromise;
-      if (!stripe) {
-        console.error("Stripe failed to load");
-        return;
-      }
-
-      const result = await stripe.redirectToCheckout({
-
-        lineItems: [{ price: "price_1SAUmmF0T0NtydYH3jS5aHKl", quantity: 1 }],
-        mode: "payment",
-        successUrl: window.location.origin + "/success",
-        cancelUrl: window.location.origin + "/cancel",
-      });
-
-      if (result && result.error) {
-        console.error(result.error.message);
-        
-      }
-    } catch (err) {
-      console.error("Donate error:", err);
-    }
-  };
+ 
 
   return (
     <div
@@ -193,7 +171,7 @@ const Navbar = () => {
             Start Questionnaire
           </Link>
           <button
-            onClick={handleDonate}
+            onClick={() => setShowModal(true)}
             className="new-gradient-btn py-3 px-5 rounded-[26px]  text-white  text-[14px] font-[600] "
           >
             Contribute
