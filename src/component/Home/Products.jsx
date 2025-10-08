@@ -19,8 +19,8 @@ export default function Products() {
             <div  className='bg-[#ffffff] p-3 rounded-3xl ' key={i} >
               <div className='relative   '>
                 <img src={item.image} alt=""  className="" />
-                <div className='absolute top-1.5 right-1.5 bg-white flex items-center justify-center gap-1 w-[41px] h-[27px] rounded-[100px] '>
-                  <img src="./public/star.png" alt=""  className='w-[12px] h-[12px] '/>
+                <div className='absolute top-3 right-4 bg-white flex items-center justify-center gap-1 w-[41px] h-[27px] rounded-[100px] '>
+                  <img src="/star.png" alt=""  className='w-[12px] h-[12px] '/>
                   <p className='text-[11px] font-[400]' >4.5</p>
                 </div>
               </div>

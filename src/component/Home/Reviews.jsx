@@ -61,9 +61,9 @@ const Reviews = () => {
           <div className="flex gap-4">
             <button
               onClick={handlePrev}
-              className=" flex items-center justify-center w-12 h-12 rounded-full bg-[#E9E9E96B] text-white shadow-md hover:scale-110 transition group hover:bg-[#FFCBE970] "
+              className=" flex relative items-center justify-center w-12 h-12 rounded-full bg-[#E9E9E96B] text-white shadow-md hover:scale-110 transition group hover:bg-[#FFCBE970] "
             >
-              <MdArrowBackIos className="w-6 h-6 text-[#878787] group-hover:text-[#E10983]" />
+              <MdArrowBackIos className="w-6 h-6 text-[#878787] group-hover:text-[#E10983] absolute left-4" />
             </button>
 
             <button
