@@ -42,7 +42,7 @@ export default function ShopProduct() {
   return (
     <div className={`w-full flex flex-col gap-6 py-10  horizontal-padding`}>
      
-      <div className="w-full grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 ">
+      <div className="w-full grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 ">
         {ProductsJson.map((item, i) => (
           <div className="bg-[#ffffff] p-3 rounded-3xl " key={i}>
             <div className="relative   ">

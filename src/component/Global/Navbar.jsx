@@ -8,6 +8,7 @@ import { ThemeContext } from "../context/ThemeContext";
 import { FaCartShopping, FaUserDoctor } from "react-icons/fa6";
 import { CiShoppingCart } from "react-icons/ci";
 import { loadStripe } from "@stripe/stripe-js";
+import DonateModal from "./DonateModal";
 
 
 
@@ -21,6 +22,7 @@ const Navbar = () => {
     openDrawer,
     products,
     setShowModal,
+    showModal,
   } = useContext(ThemeContext);
   const [open, setOpen] = useState(false);
   const [activeLink, setActiveLink] = useState("Home");
@@ -265,6 +267,9 @@ const Navbar = () => {
           </div>
         </div>
       </div>
+      {showModal && (
+                <DonateModal showModal={showModal} setShowModal={setShowModal}/>
+            )}
     </div>
   );
 };

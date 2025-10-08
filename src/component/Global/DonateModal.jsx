@@ -58,9 +58,9 @@ export default function DonateModal( {showModal, setShowModal}) {
     <p className={`bg-[#FFCBE9] py-2 w-[110px] rounded-[100px]  text-[#CF1D67]  text-[16px] font-[600] ${amount === 100 ? 'bg-pink-600 text-white' : ''}`} >Gift Box</p>
  </div>
  <div className="flex items-center gap-2 justify-center py-6">
-    {amount === 20 || amount === 1 ? <img src="public/t-shirt.png" alt=""className="w-[130px] h-[130px] border-[2px] border-[#CF1D67]    " /> : null}
-    {amount === 40 ? <img src="public/cup.png" alt=""className="w-[130px] h-[130px]  border-[2px] border-[#CF1D67]" /> : null}
-    {amount === 100 ? <img src="public/gift-box.png" alt=""className="w-[130px] h-[130px]  border-[2px] border-[#CF1D67]" /> : null}
+    {amount === 20 || amount === 1 ? <img src="/t-shirt.png" alt=""className="w-[130px] h-[130px] border-[2px] border-[#CF1D67]    " /> : null}
+    {amount === 40 ? <img src="/cup.png" alt=""className="w-[130px] h-[130px]  border-[2px] border-[#CF1D67]" /> : null}
+    {amount === 100 ? <img src="/gift-box.png" alt=""className="w-[130px] h-[130px]  border-[2px] border-[#CF1D67]" /> : null}
  </div>
 <div className="w-full flex items-center justify-center ">
 
