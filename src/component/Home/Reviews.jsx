@@ -12,28 +12,52 @@ import { useRef } from "react";
 import { MdArrowBackIos, MdArrowForwardIos } from "react-icons/md";
 const ReviewsJson = [
   {
-    name: "Laura Bennett",
+    name: "Sarah Mitchell",
     image: "/team-member01.webp",
     description:
-      "The Breast Cancer Check device has brought me so much comfort. Knowing I can easily monitor my health at home gives me confidence and reassurance every day. ",
+      "I never thought a simple at-home test could give me such peace of mind. CierCheck helped me catch a hormonal imbalance early, and my doctor said it likely prevented bigger issues down the road. ",
   },
   {
-    name: "Sarah Mitchell",
+    name: "Marcus Lee",
     image: "/team-member02.webp",
     description:
-      "I was amazed at how simple yet effective this device is. It’s user-friendly, accurate, and has truly helped ease my worries about regular checkups. ",
+      "As someone with a family history of cancer, I’m always cautious. CierCheck made it easy to monitor my hormone levels without endless doctor visits. It’s now part of my regular routine.",
   },
   {
-    name: "Emily Carter",
+    name: "Jessica Alvarez",
     image: "/team-member04.jpg",
     description:
-      "This device has been a blessing. It makes the process stress-free and reliable, giving me peace of mind whenever I use it.",
+      "I used CierCheck after noticing a few unusual symptoms. The results gave me clarity and helped me start a conversation with my doctor sooner. It really empowered me to take control of my health.",
   },
   {
-    name: "Jamey",
+    name: "Priya Deshmukh",
     image: "/team-member02.webp",
     description:
-      "I appreciate how convenient and trustworthy the Breast Cancer Check device is. It has made such a positive difference in managing my health with confidence.",
+      "I loved how simple the process was. Just a drop of blood, and I had accurate results in no time. CierCheck made something that used to feel scary feel completely manageable.",
+  },
+  {
+    name: "David Thompson",
+    image: "/team-member02.webp",
+    description:
+      "I got CierCheck for my wife initially, but then decided to test myself too. The insights we both gained about our hormone health were eye-opening. Every household should have this kit.",
+  },
+  {
+    name: "Lauren Carter",
+    image: "/team-member02.webp",
+    description:
+      "CierCheck helped me understand changes in my body I’d been ignoring for months. The app’s connection to health professionals made it so easy to get guidance without stress.",
+  },
+  {
+    name: "Monica Chen",
+    image: "/team-member02.webp",
+    description:
+      "After menopause, I wanted to keep an eye on my hormone levels. CierCheck gave me reliable data and helped me talk to my doctor with real confidence.",
+  },
+  {
+    name: "Robert Hayes",
+    image: "/team-member02.webp",
+    description:
+      "I travel a lot for work, so regular checkups are tough. CierCheck gave me a convenient way to stay informed about my health from anywhere. It’s genuinely life-changing.",
   },
 ];
 const Reviews = () => {

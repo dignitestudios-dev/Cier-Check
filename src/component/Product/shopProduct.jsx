@@ -47,7 +47,7 @@ export default function ShopProduct() {
           <div className="bg-[#ffffff] p-3 rounded-3xl " key={i}>
             <div className="relative   ">
               <img src={item.image} alt="" className="" />
-              <div className="absolute top-1.5 right-1.5 bg-white flex items-center justify-center gap-1 w-[41px] h-[27px] rounded-[100px] ">
+              <div className="absolute top-3 right-4 bg-white flex items-center justify-center gap-1 w-[41px] h-[27px] rounded-[100px] ">
                 <img
                   src="./public/star.png"
                   alt=""
