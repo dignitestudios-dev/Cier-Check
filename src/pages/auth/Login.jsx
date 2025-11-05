@@ -10,37 +10,27 @@ const Login = ({ showModal, onClose }) => {
   if (!showModal) return null;
   const { fcmToken } = useContext(AppContext);
 
- const handleGoogleLogin = async () => {
-  try {
-    console.log("🟡 Opening Google popup...");
-    const result = await signInWithPopup(auth, googleProvider);
-    console.log("✅ Popup success:", result.user);
-
-    const idToken = await result.user.getIdToken();
-    console.log("✅ Got Firebase ID Token:", idToken.slice(0, 20), "...");
-
-    const data = { idToken, type: "google" };
-    console.log("📤 Sending to backend:", data);
-
-    const response = await axios.post(
-      "/api/v1/patient/auth/social-auth",
-      data,
-      { headers: { fcmtoken: fcmToken || "" } }
-    );
-
-    console.log("✅ API response:", response.data);
-    if (response?.data?.success) {
-      SuccessToast(response?.data?.message);
-      onClose();
-    } else {
-      ErrorToast(response?.data?.message || "Login failed");
-    }
-  } catch (error) {
-    console.error("❌ Login error:", error);
-    console.log("🔍 Full error object:", error);
-    ErrorToast(error?.response?.data?.message || error.message || "Google login failed");
-  }
+const handleGoogleLogin = () => {
+  signInWithPopup(auth, googleProvider)
+    .then(async (result) => {
+      const idToken = await result.user.getIdToken();
+      const data = { idToken, type: "google" };
+      const response = await axios.post(
+        "/api/v1/patient/auth/social-auth",
+        data,
+        { headers: { fcmtoken: fcmToken || "" } }
+      );
+      if (response?.data?.success) {
+        SuccessToast(response?.data?.message);
+        onClose();
+      }
+    })
+    .catch((error) => {
+      console.error("❌ Login error:", error);
+      ErrorToast(error?.response?.data?.message || error.message);
+    });
 };
+
 
 
   const handleAppleLogin = async () => {
