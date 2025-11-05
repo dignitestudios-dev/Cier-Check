@@ -1,5 +1,5 @@
 import React, { useContext, useRef } from "react";
-import {  Link } from "react-router-dom";
+import { Link } from "react-router-dom";
 import Navbar from "../Global/Navbar";
 import { useScroll, motion, useTransform } from "framer-motion";
 import { useInView } from "react-intersection-observer";
@@ -9,10 +9,10 @@ import { useNavigate } from "react-router-dom";
 import { loadStripe } from "@stripe/stripe-js";
 import { ThemeContext } from "../context/ThemeContext";
 
-const Hero = () => {
+const Hero = ({ setAppointmentModal }) => {
   const { setShowModal } = useContext(ThemeContext);
-    const navigate = useNavigate();
-  
+  const navigate = useNavigate();
+
   return (
     <main className="w-full  flex hero h-[90vh] ">
       <div className=" w-[80%] flex flex-col gap-5  text-white horizontal-padding pt-32">
@@ -28,8 +28,17 @@ const Hero = () => {
           their future and the lives of their loved ones.
         </p>
         <div className="lg:mt-3 flex gap-4">
-          <button   onClick={() => setShowModal(true)} className="bg-[#FFCBE9] w-[240px] h-[60px] rounded-[100px]  text-[#CF1D67]  text-[16px] font-[600] ">
-          Contribute
+          <button
+            onClick={() => setShowModal(true)}
+            className="bg-[#FFCBE9] w-[240px] h-[60px] rounded-[100px]  text-[#CF1D67]  text-[16px] font-[600] "
+          >
+            Contribute
+          </button>
+          <button
+            onClick={() => setAppointmentModal(true)}
+            className="bg-[#FFCBE9] w-[240px] h-[60px] rounded-[100px]  text-[#CF1D67]  text-[16px] font-[600] "
+          >
+            Book a Consultation
           </button>
         </div>
       </div>

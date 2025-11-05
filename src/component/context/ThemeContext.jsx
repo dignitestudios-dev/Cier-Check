@@ -21,10 +21,9 @@ const ThemeProvider = ({ children }) => {
 
 
     const [products, setProducts] = useState([]);
-    console.log("cartProducts >> ", products)
+   
 
     const addProduct = (data) => {
-        console.log(data);
 
         const productExists = products.find(p => p.id === data.id);
         setOpenDrawer(true)

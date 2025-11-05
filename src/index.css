@@ -164,6 +164,12 @@
   background-position: center;
   
 }
+.bg-img-login {
+  background-image: url(../src/assets/loginBg.png);
+  background-size: cover;
+  background-position: center;
+  
+}
 .Quiz-bg {
   background-image: url(../public/Quiz-bg.png);
   background-size: cover;

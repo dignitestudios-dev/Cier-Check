@@ -9,8 +9,7 @@ import { FaCartShopping, FaUserDoctor } from "react-icons/fa6";
 import { CiShoppingCart } from "react-icons/ci";
 import { loadStripe } from "@stripe/stripe-js";
 import DonateModal from "./DonateModal";
-
-
+import Login from "../../pages/auth/Login";
 
 const Navbar = () => {
   const {
@@ -25,6 +24,7 @@ const Navbar = () => {
     showModal,
   } = useContext(ThemeContext);
   const [open, setOpen] = useState(false);
+  const [loginModal, setloginModal] = useState(false);
   const [activeLink, setActiveLink] = useState("Home");
   const handlenav = () => {
     setOpen(!open);
@@ -50,8 +50,6 @@ const Navbar = () => {
       window.removeEventListener("scroll", handleScroll);
     };
   }, []);
-
- 
 
   return (
     <div
@@ -178,6 +176,12 @@ const Navbar = () => {
           >
             Contribute
           </button>
+          <button
+            onClick={() => setloginModal(true)}
+            className="new-gradient-btn py-3 px-5 rounded-[26px]  text-white  text-[14px] font-[600] "
+          >
+            Login Now{" "}
+          </button>
         </div>
         <div className="lg:hidden ">
           <button
@@ -268,8 +272,11 @@ const Navbar = () => {
         </div>
       </div>
       {showModal && (
-                <DonateModal showModal={showModal} setShowModal={setShowModal}/>
-            )}
+        <DonateModal showModal={showModal} setShowModal={setShowModal} />
+      )}
+      {loginModal && (
+        <Login onClose={() => setloginModal(false)} showModal={loginModal} />
+      )}
     </div>
   );
 };
