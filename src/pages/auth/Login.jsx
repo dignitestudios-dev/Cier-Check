@@ -10,28 +10,32 @@ const Login = ({ showModal, onClose }) => {
   if (!showModal) return null;
   const { fcmToken } = useContext(AppContext);
 
-const handleGoogleLogin = () => {
-  signInWithPopup(auth, googleProvider)
-    .then(async (result) => {
-      const idToken = await result.user.getIdToken();
-      const data = { idToken, type: "google" };
-      const response = await axios.post(
-        "/api/v1/patient/auth/social-auth",
-        data,
-        { headers: { fcmtoken: fcmToken || "" } }
-      );
-      if (response?.data?.success) {
-        SuccessToast(response?.data?.message);
-        onClose();
-      }
-    })
-    .catch((error) => {
-      console.error("❌ Login error:", error);
-      ErrorToast(error?.response?.data?.message || error.message);
-    });
-};
+  // ✅ must be directly triggered by click
+  const handleGoogleLogin = () => {
+    signInWithPopup(auth, googleProvider)
+      .then(async (result) => {
+        const idToken = await result.user.getIdToken();
 
+        const data = { idToken, type: "google" };
 
+        const response = await axios.post(
+          "/api/v1/patient/auth/social-auth",
+          data,
+          { headers: { fcmtoken: fcmToken || "" } }
+        );
+
+        if (response?.data?.success) {
+          SuccessToast(response.data.message);
+          onClose();
+        } else {
+          ErrorToast(response.data.message || "Login failed");
+        }
+      })
+      .catch((error) => {
+        console.error("Login error:", error);
+        ErrorToast(error.message || "Google login failed");
+      });
+  };
 
   const handleAppleLogin = async () => {
     try {
