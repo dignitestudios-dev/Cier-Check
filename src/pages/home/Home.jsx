@@ -1,4 +1,4 @@
-import React, { useContext, useEffect, useState } from "react";
+import React, { useContext, useEffect, useRef, useState } from "react";
 import Hero from "../../component/Home/Hero";
 import Helping from "../../component/Home/Helping";
 import BecomeAware from "../../component/Home/BecomeAware";
@@ -14,7 +14,8 @@ import BookingCompleted from "../../component/bookappoitment/BookingCompleted";
 import axios from "../../../axios";
 import { ErrorToast, SuccessToast } from "../../component/Global/Toaster";
 import { useStripe } from "@stripe/react-stripe-js";
-import socket from "../../component/context/SocketContext";
+import { AppContext } from "../../context/AppContext";
+import { initSocket } from "../../component/context/SocketContext";
 
 const Home = () => {
   const stripe = useStripe();
@@ -22,31 +23,33 @@ const Home = () => {
   const [appointmentModal, setAppointmentModal] = useState(false);
   const [step, setStep] = useState(1);
   const [loading, setLoading] = useState(false);
-  useEffect(() => {
-    if (!socket.connected) socket.connect();
+  const { token } = useContext(AppContext);
 
-    socket.on("connect", () => console.log("✅ Socket connected:", socket.id));
-    socket.on("disconnect", (reason) =>
-      console.log("❌ Socket disconnected:", reason)
-    );
-    socket.on("connect_error", (err) => console.error("⚠️ Socket error:", err));
+  // 🧠 Store socket ref globally for this component
+  const socketRef = useRef(null);
+
+  useEffect(() => {
+    if (!token) return;
+
+    const socket = initSocket();
+    if (!socket) return;
+
+    socketRef.current = socket; // ✅ Save it for later use
 
     socket.on("book-consultation", (data) => {
-      console.log("Booking success:", data);
+      console.log("✅ Booking success:", data);
     });
 
     socket.on("book-consultation-error", (err) => {
-      console.error("Booking failed:", err);
+      console.error("❌ Booking error:", err);
     });
 
     return () => {
-      socket.off("connect");
-      socket.off("disconnect");
-      socket.off("connect_error");
-      socket.off("book-consultation-success");
+      socket.off("book-consultation");
       socket.off("book-consultation-error");
     };
-  }, []);
+  }, [token]);
+
   const handleCreateAppoitment = async () => {
     if (!stripe) {
       ErrorToast("Stripe not ready yet!");
@@ -66,16 +69,18 @@ const Home = () => {
       ErrorToast("Payment method not found!");
       return;
     }
+
     const payload = {
       doctorId: savedDoctor.id,
       paymentMethod: cards[0].id,
     };
+
     setLoading(true);
     try {
       const response = await axios.post("/api/v1/consultation", payload);
+
       if (response?.status === 200) {
-        const { clientSecret, consultationId, paymentIntentId } =
-          response.data.data;
+        const { clientSecret } = response.data.data;
 
         const result = await stripe.confirmCardPayment(clientSecret, {
           payment_method: cards?.[0]?.id,
@@ -93,6 +98,14 @@ const Home = () => {
             doctorId: savedDoctor?.id,
             minutes: 30,
           };
+
+          // ✅ Use socket from ref
+          const socket = socketRef.current;
+          if (!socket) {
+            ErrorToast("Socket not ready, please refresh the page.");
+            return;
+          }
+
           if (!socket.connected) socket.connect();
           socket.emit("book-consultation", bookPayload);
 
@@ -117,7 +130,6 @@ const Home = () => {
       setLoading(false);
     }
   };
-
   return (
     <div className="bg-[#F9FAFA]">
       <Hero setAppointmentModal={setAppointmentModal} setStep={setStep} />
