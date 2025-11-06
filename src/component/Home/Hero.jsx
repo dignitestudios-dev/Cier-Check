@@ -8,10 +8,11 @@ import { div } from "framer-motion/client";
 import { useNavigate } from "react-router-dom";
 import { loadStripe } from "@stripe/stripe-js";
 import { ThemeContext } from "../context/ThemeContext";
+import { AppContext } from "../../context/AppContext";
 
-const Hero = ({ setAppointmentModal }) => {
+const Hero = ({ setAppointmentModal ,setStep}) => {
   const { setShowModal } = useContext(ThemeContext);
-  const navigate = useNavigate();
+  const { token } = useContext(AppContext);
 
   return (
     <main className="w-full  flex hero h-[90vh] ">
@@ -34,12 +35,16 @@ const Hero = ({ setAppointmentModal }) => {
           >
             Contribute
           </button>
-          <button
-            onClick={() => setAppointmentModal(true)}
-            className="bg-[#FFCBE9] w-[240px] h-[60px] rounded-[100px]  text-[#CF1D67]  text-[16px] font-[600] "
-          >
-            Book a Consultation
-          </button>
+          {token && (
+            <button
+              onClick={() => {setAppointmentModal(true)
+                setStep(1)
+              }}
+              className="bg-[#FFCBE9] w-[240px] h-[60px] rounded-[100px]  text-[#CF1D67]  text-[16px] font-[600] "
+            >
+              Book a Consultation
+            </button>
+          )}
         </div>
       </div>
     </main>

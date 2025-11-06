@@ -10,6 +10,7 @@ import { CiShoppingCart } from "react-icons/ci";
 import { loadStripe } from "@stripe/stripe-js";
 import DonateModal from "./DonateModal";
 import Login from "../../pages/auth/Login";
+import { AppContext } from "../../context/AppContext";
 
 const Navbar = () => {
   const {
@@ -29,6 +30,7 @@ const Navbar = () => {
   const handlenav = () => {
     setOpen(!open);
   };
+  const { userName, logout } = useContext(AppContext);
 
   const [isScrolled, setIsScrolled] = useState(false);
 
@@ -176,12 +178,47 @@ const Navbar = () => {
           >
             Contribute
           </button>
-          <button
-            onClick={() => setloginModal(true)}
-            className="new-gradient-btn py-3 px-5 rounded-[26px]  text-white  text-[14px] font-[600] "
-          >
-            Login Now{" "}
-          </button>
+          {userName ? (
+            <div className="relative group">
+              {/* Username Button */}
+              <button className="new-gradient-btn py-2 px-4 rounded-[26px] text-white text-[14px] font-[600] flex items-center gap-2">
+                {userName ? (
+                  <div className="w-8 h-8 rounded-full bg-pink-600 text-white flex items-center justify-center text-sm font-semibold border border-white uppercase">
+                    {userName
+                      .split(" ")
+                      .map((word) => word[0])
+                      .join("")
+                      .slice(0, 2)}
+                  </div>
+                ) : (
+                  <img
+                    src="/user-avatar.png"
+                    alt="user"
+                    className="w-6 h-6 rounded-full border border-white"
+                  />
+                )}
+
+                {userName}
+              </button>
+
+              {/* Dropdown Menu */}
+              <div className="absolute right-0 mt-2 w-40 bg-white shadow-lg rounded-lg opacity-0 group-hover:opacity-100 group-hover:translate-y-2 transition-all duration-300 z-50">
+                <button
+                  onClick={logout}
+                  className="block w-full text-left px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 rounded-lg"
+                >
+                  Logout
+                </button>
+              </div>
+            </div>
+          ) : (
+            <button
+              onClick={() => setloginModal(true)}
+              className="new-gradient-btn py-3 px-5 rounded-[26px] text-white text-[14px] font-[600]"
+            >
+              Login Now
+            </button>
+          )}
         </div>
         <div className="lg:hidden ">
           <button

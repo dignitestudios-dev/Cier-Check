@@ -7,21 +7,39 @@ import {
 } from "react-icons/io5";
 import { useFormik } from "formik";
 import * as Yup from "yup";
-
+import axios from "../../../axios";
 const AppointmentModal = ({ showModal, onClose, onNext }) => {
   if (!showModal) return null;
 
   const [doctorDropdownOpen, setDoctorDropdownOpen] = useState(false);
   const [searchDoctor, setSearchDoctor] = useState("");
   const [selectedDoctor, setSelectedDoctor] = useState("");
+  const [doctors, setDoctors] = useState([]);
+  const [loadingdoctors, setLoadingDoctors] = useState(false);
 
-  const doctors = [
-    "Dr. Aisha Khan",
-    "Dr. Michael Brown",
-    "Dr. Fatima Sheikh",
-    "Dr. John Carter",
-    "Dr. Priya Mehta",
-  ];
+  const getDoctors = async (search = "") => {
+    setLoadingDoctors(true);
+    try {
+      const response = await axios.get("/api/v1/home/search", {
+        params: { type: "doctor", q: search },
+      });
+      if (response?.status === 200) {
+        setDoctors(response?.data?.data?.result || []);
+      }
+    } catch (error) {
+      console.log(error?.response?.data?.message);
+    } finally {
+      setLoadingDoctors(false);
+    }
+  };
+
+  useEffect(() => {
+    const timeout = setTimeout(() => {
+      getDoctors(searchDoctor);
+    }, 500); // 500ms delay
+    return () => clearTimeout(timeout);
+  }, [searchDoctor]);
+
 
   const dropdownRef = useRef(null);
   useEffect(() => {
@@ -34,33 +52,33 @@ const AppointmentModal = ({ showModal, onClose, onNext }) => {
     return () => document.removeEventListener("mousedown", handleClickOutside);
   }, []);
 
-  const filteredDoctors = doctors.filter((doc) =>
-    doc.toLowerCase().includes(searchDoctor.toLowerCase())
-  );
-
   const formik = useFormik({
     initialValues: {
       doctor: "",
-      date: "",
-      time: "",
     },
     validationSchema: Yup.object({
       doctor: Yup.string().required("Please select a doctor"),
-      date: Yup.string().required("Please choose a date"),
-      time: Yup.string().required("Please choose a time"),
     }),
     onSubmit: (values) => {
-      console.log("Step 1 data:", values);
-      onNext(); // 👉 Go to step 2
+      onNext();
     },
   });
 
   const handleDoctorSelect = (doc) => {
-    setSelectedDoctor(doc);
-    formik.setFieldValue("doctor", doc);
+    setSelectedDoctor(doc.fullName);
+    formik.setFieldValue("doctor", doc._id);
     formik.setFieldTouched("doctor", true, true);
     setDoctorDropdownOpen(false);
     setSearchDoctor("");
+
+    // Save doctor info to localStorage
+    localStorage.setItem(
+      "selected_doctor",
+      JSON.stringify({
+        id: doc._id,
+        name: doc.fullName,
+      })
+    );
   };
 
   return (
@@ -99,6 +117,7 @@ const AppointmentModal = ({ showModal, onClose, onNext }) => {
               >
                 {selectedDoctor || "Select Doctor"}
               </span>
+
               <IoChevronDown className="text-gray-400" />
             </div>
             {formik.errors.doctor && formik.touched.doctor && (
@@ -107,39 +126,55 @@ const AppointmentModal = ({ showModal, onClose, onNext }) => {
               </p>
             )}
 
-            {doctorDropdownOpen && (
-              <div className="absolute mt-2 w-[500px] bg-white border border-gray-200 rounded-[12px] shadow-lg z-10 p-2">
-                <input
-                  type="text"
-                  placeholder="Search doctor..."
-                  value={searchDoctor}
-                  onChange={(e) => setSearchDoctor(e.target.value)}
-                  className="w-[480px] mb-2 px-3 py-2 border border-gray-200 rounded-md text-sm outline-none focus:ring-1 focus:ring-pink-400"
-                />
-                <div className="max-h-[120px] overflow-y-auto">
-                  {filteredDoctors.length > 0 ? (
-                    filteredDoctors.map((doc, idx) => (
-                      <p
-                        key={idx}
-                        onClick={() => handleDoctorSelect(doc)}
-                        className="px-3 py-2 hover:bg-pink-50 cursor-pointer rounded-md text-[14px]"
-                      >
-                        {doc}
-                      </p>
-                    ))
-                  ) : (
-                    <p className="text-center text-gray-400 text-sm py-2">
-                      No doctor found
-                    </p>
-                  )}
-                </div>
-              </div>
-            )}
+           {doctorDropdownOpen && (
+  <div className="absolute mt-2 w-[500px] bg-white border border-gray-200 rounded-[12px] shadow-lg z-10 p-2">
+    <input
+      type="text"
+      placeholder="Search doctor..."
+      value={searchDoctor}
+      onChange={(e) => {
+        const value = e.target.value;
+        setSearchDoctor(value);
+        getDoctors(value);
+      }}
+      className="w-[480px] mb-2 px-3 py-2 border border-gray-200 rounded-md text-sm outline-none focus:ring-1 focus:ring-pink-400"
+    />
+
+    <div className="max-h-[150px] overflow-y-auto">
+      {loadingdoctors ? (
+        // 🔹 Skeleton loader (3 items)
+        <div className="flex flex-col gap-2">
+          {[1, 2, 3].map((i) => (
+            <div
+              key={i}
+              className="w-full h-[36px] rounded-md bg-gray-100 animate-pulse"
+            ></div>
+          ))}
+        </div>
+      ) : doctors?.length > 0 ? (
+        doctors?.map((doc, idx) => (
+          <p
+            key={idx}
+            onClick={() => handleDoctorSelect(doc)}
+            className="px-3 py-2 hover:bg-pink-50 cursor-pointer rounded-md text-[14px]"
+          >
+            {doc?.fullName}
+          </p>
+        ))
+      ) : (
+        <p className="text-center text-gray-400 text-sm py-2">
+          No doctor found
+        </p>
+      )}
+    </div>
+  </div>
+)}
+
           </div>
 
           {/* Date & Time */}
-          <div className="grid grid-cols-2 gap-4 mt-3">
-            {/* Date */}
+          {/* <div className="grid grid-cols-2 gap-4 mt-3">
+      
             <div>
               <label className="block text-[16px] font-[500] mb-1">Date</label>
               <div className="relative">
@@ -164,7 +199,7 @@ const AppointmentModal = ({ showModal, onClose, onNext }) => {
               )}
             </div>
 
-            {/* Time */}
+           
             <div>
               <label className="block text-[16px] font-[500] mb-1">Time</label>
               <div className="relative">
@@ -188,7 +223,7 @@ const AppointmentModal = ({ showModal, onClose, onNext }) => {
                 </p>
               )}
             </div>
-          </div>
+          </div> */}
 
           {/* Next */}
           <button

@@ -1,14 +1,26 @@
 import axios from "axios";
 import Cookies from "js-cookie";
 import { ErrorToast } from "./src/component/Global/Toaster";
+import FingerprintJS from "@fingerprintjs/fingerprintjs";
 
 export const baseUrl = "https://api.ciercheck.com";
 
+let globalFcmToken = null;
+
+export const setFcmToken = (token) => {
+  globalFcmToken = token;
+};
+
+async function getDeviceFingerprint() {
+  const fp = await FingerprintJS.load();
+  const result = await fp.get();
+  return result.visitorId;
+}
 const instance = axios.create({
   baseURL: baseUrl,
 });
 
-instance.interceptors.request.use((request) => {
+instance.interceptors.request.use(async (request) => {
   let token = Cookies.get("token");
   if (!navigator.onLine) {
     // No internet connection
@@ -17,11 +29,17 @@ instance.interceptors.request.use((request) => {
     );
     return;
   }
+  const fingerprint = await getDeviceFingerprint();
 
   request.headers = {
+    ...request.headers,
+    devicemodel: navigator.userAgent || "web",
+    deviceuniqueid: fingerprint,
+    fcmtoken: globalFcmToken || "", // ✅ now uses the setter value
     Accept: "application/json, text/plain, */*",
-    Authorization: `Bearer ${token}`,
+    ...(token && { Authorization: `Bearer ${token}` }),
   };
+
   return request;
 });
 

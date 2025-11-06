@@ -5,12 +5,12 @@ import { auth, googleProvider, appleProvider } from "../../firebase/firebase";
 import { signInWithPopup } from "firebase/auth";
 import axios from "../../../axios";
 import { ErrorToast, SuccessToast } from "../../component/Global/Toaster";
+import Cookies from "js-cookie";
 
 const Login = ({ showModal, onClose }) => {
   if (!showModal) return null;
-  const { fcmToken } = useContext(AppContext);
+  const { fcmToken, setToken, setUserName } = useContext(AppContext);
 
-  // ✅ must be directly triggered by click
   const handleGoogleLogin = () => {
     signInWithPopup(auth, googleProvider)
       .then(async (result) => {
@@ -25,6 +25,12 @@ const Login = ({ showModal, onClose }) => {
         );
 
         if (response?.data?.success) {
+          const token = response.data.data.token;
+          const userName = response?.data?.data?.patient?.fullName;
+          Cookies.set("token", token);
+          Cookies.set("userName", userName);
+          setToken(token);
+          setUserName(userName);
           SuccessToast(response.data.message);
           onClose();
         } else {
@@ -57,8 +63,13 @@ const Login = ({ showModal, onClose }) => {
       );
 
       if (response?.data?.success) {
+        const token = response?.data?.data?.token;
+        const userName = response?.data?.data?.patient?.fullName;
+        Cookies.set("token", token);
+        Cookies.set("userName", userName);
+        setToken(token);
+        setUserName(userName);
         SuccessToast(response?.data?.message);
-        console.log("Apple Login Successful ✅", response.data);
         onClose();
       }
     } catch (error) {
