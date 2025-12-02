@@ -20,8 +20,7 @@ const Login = ({ showModal, onClose }) => {
 
         const response = await axios.post(
           "/api/v1/patient/auth/social-auth",
-          data,
-          { headers: { fcmtoken: fcmToken || "" } }
+          data
         );
 
         if (response?.data?.success) {
@@ -54,12 +53,7 @@ const Login = ({ showModal, onClose }) => {
 
       const response = await axios.post(
         "/api/v1/patient/auth/social-auth",
-        data,
-        {
-          headers: {
-            fcmtoken: fcmToken || "",
-          },
-        }
+        data
       );
 
       if (response?.data?.success) {

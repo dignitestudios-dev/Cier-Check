@@ -27,6 +27,11 @@ export const AppContextProvider = ({ children }) => {
     getFcm();
   }, []);
   useEffect(() => {
+    if (fcmToken) {
+      setFcmToken(fcmToken); // 🔥 THIS FIXES EVERYTHING!
+    }
+  }, [fcmToken]);
+  useEffect(() => {
     const savedToken = Cookies.get("token");
     const savedUser = Cookies.get("userName");
     if (savedToken && savedUser) {

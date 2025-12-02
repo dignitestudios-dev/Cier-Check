@@ -7,6 +7,7 @@ export const baseUrl = "https://api.ciercheck.com";
 
 let globalFcmToken = null;
 
+
 export const setFcmToken = (token) => {
   globalFcmToken = token;
 };
@@ -35,7 +36,7 @@ instance.interceptors.request.use(async (request) => {
     ...request.headers,
     devicemodel: navigator.userAgent || "web",
     deviceuniqueid: fingerprint,
-    fcmtoken: globalFcmToken || "", // ✅ now uses the setter value
+    fcmToken: globalFcmToken || "", // ✅ now uses the setter value
     Accept: "application/json, text/plain, */*",
     ...(token && { Authorization: `Bearer ${token}` }),
   };
