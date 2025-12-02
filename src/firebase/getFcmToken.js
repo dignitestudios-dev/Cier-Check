@@ -4,9 +4,20 @@ import { getToken } from "firebase/messaging";
 const getFCMToken = async () => {
   try {
     const permission = await Notification.requestPermission();
+
     if (permission === "granted") {
+      const registration = await navigator.serviceWorker.register(
+        "/firebase-messaging-sw.js"
+      );
+      if (!registration) {
+        console.log("Service worker registration failed");
+        return null;
+      }
+
       const token = await getToken(messaging, {
-        vapidKey: 'BI2ycbkzF1rezi2Gfw_K65g_kDGfE3WXjXyOuDgWqGtmEJ-XwnpYbk0SC2puFAznPJnyLCd5ugTOuYPoENwE0pY',
+        vapidKey:
+          "BI2ycbkzF1rezi2Gfw_K65g_kDGfE3WXjXyOuDgWqGtmEJ-XwnpYbk0SC2puFAznPJnyLCd5ugTOuYPoENwE0pY",
+        serviceWorkerRegistration: registration,
       });
       return token;
     } else {
