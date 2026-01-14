@@ -1,4 +1,4 @@
-import React, { useContext, useState } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import { ThemeContext } from "../context/ThemeContext";
 import { useFormik } from "formik";
 import axios from "../../../axios";
@@ -87,7 +87,7 @@ const HeroQuestionnaire = () => {
         const response = await axios.post("/api/v1/question", payload);
         if (response.status === 200) {
           SuccessToast(response?.data?.message);
-          setStep(0)
+          setStep(0);
         }
       } catch (error) {
         ErrorToast(
@@ -116,6 +116,12 @@ const HeroQuestionnaire = () => {
       setStep(step + 1);
     }
   };
+  useEffect(() => {
+    questionImages.forEach((src) => {
+      const img = new Image();
+      img.src = src;
+    });
+  }, []);
 
   return (
     <form onSubmit={formik.handleSubmit}>
@@ -124,24 +130,24 @@ const HeroQuestionnaire = () => {
           theme === "light" ? "bg-white " : "bg-[#2d2d2d]"
         }`}
       >
-        <div className="flex justify-center items-center mb-6">
-          <img
-            src={questionImages[step]}
-            className="w-[250px]"
-            alt="question"
-          />
-        </div>
+      <div className="flex justify-center items-center mb-6 h-[250px]  rounded-lg">
+  <img
+    src={questionImages[step]}
+    className="w-[250px] object-contain"
+    alt="question"
+  />
+</div>
+
 
         <h2 className="text-[16px] flex  justify-center gap-1 text-[#e1107e] text-center mb-6">
-          Q{step + 1}. 
-        <h2 className="text-black">{questions[step]}</h2>
+          Q{step + 1}.<h2 className="text-black">{questions[step]}</h2>
         </h2>
 
         <div>
           <button
             type="button"
             onClick={() => handleAnswer("yes")}
-className="border-2 rounded-full w-full h-[49px] border-[#e1107e] mb-2 
+            className="border-2 rounded-full w-full h-[49px] border-[#e1107e] mb-2 
            hover:bg-[#e1107e] hover:text-white 
            transition-colors duration-300 ease-in-out"
           >
