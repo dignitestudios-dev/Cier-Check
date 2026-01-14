@@ -166,12 +166,16 @@ const Navbar = () => {
         </div>
         <div className=" flex items-center gap-5">
           {" "}
+          {userName && (
           <Link
             to={"/startquestionnaire"}
             className="new-gradient-btn py-3 px-5 rounded-[26px]  text-white  text-[14px] font-[600] "
           >
             Start Questionnaire
           </Link>
+
+
+          )}
           <button
             onClick={() => setShowModal(true)}
             className="new-gradient-btn py-3 px-5 rounded-[26px]  text-white  text-[14px] font-[600] "
