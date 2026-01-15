@@ -122,21 +122,39 @@ const HeroQuestionnaire = () => {
       img.src = src;
     });
   }, []);
+  const progressPercent = ((step + 1) / questions.length) * 100;
+
 
   return (
     <form onSubmit={formik.handleSubmit}>
       <div
-        className={`w-[95%] lg:w-[60%] my-10 mx-auto py-14 px-6 lg:px-12 rounded-xl ${
-          theme === "light" ? "bg-white " : "bg-[#2d2d2d]"
-        }`}
+        className={`w-[95%] lg:w-[60%] my-10 mx-auto py-14 px-6 lg:px-12 rounded-xl ${theme === "light" ? "bg-white " : "bg-[#2d2d2d]"
+          }`}
       >
-      <div className="flex justify-center items-center mb-6 h-[250px]  rounded-lg">
-  <img
-    src={questionImages[step]}
-    className="w-[250px] object-contain"
-    alt="question"
-  />
-</div>
+        {/* Progress Bar */}
+        <div className="mb-6">
+           <div className="flex  text-[13px] font-[500] mb-1 mt-1 text-black">
+            <span>Question {step + 1}</span>
+            <span className="mx-1">of</span>
+            <span>{questions.length}</span>
+          </div>
+          <div className="w-full h-[6px] bg-gray-200 rounded-full overflow-hidden">
+            <div
+              className="h-full bg-[#e1107e] transition-all duration-500 ease-in-out"
+              style={{ width: `${((step + 1) / questions.length) * 100}%` }}
+            />
+          </div>
+
+         
+        </div>
+
+        <div className="flex justify-center items-center mb-6 h-[250px]  rounded-lg">
+          <img
+            src={questionImages[step]}
+            className="w-[250px] object-contain"
+            alt="question"
+          />
+        </div>
 
 
         <h2 className="text-[16px] flex  justify-center gap-1 text-[#e1107e] text-center mb-6">
@@ -165,7 +183,7 @@ const HeroQuestionnaire = () => {
         <div className="mt-2 flex justify-end">
           {step === questions.length - 1 ? (
             <button type="submit" className="text-[12px] me-2 text-[#e1107e]">
-              Review {">"}
+              Skip {">"}
             </button>
           ) : (
             <button
