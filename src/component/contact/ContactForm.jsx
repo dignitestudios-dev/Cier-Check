@@ -73,7 +73,7 @@ const ContactForm = () => {
 
         <div className="w-full  gap-12 h-[80vh] horizontal-padding">
           <div className="flex h-full flex-col justify-center   gap-6">
-            <h2 className="text-4xl md:text-6xl xl:text-6xl font-bold text-white">
+            <h2 data-aos="fade-right" className="text-4xl md:text-6xl xl:text-6xl font-bold text-white">
               Contact Us
             </h2>
             <p className="text-lg text-white">

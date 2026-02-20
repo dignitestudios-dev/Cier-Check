@@ -10,7 +10,7 @@ export default function Products() {
   return (
     <div className={`w-full flex flex-col items-center  justify-center text-center gap-6 py-12 lg:py-20 horizontal-padding `} >
       <div className='w-full flex items-center justify-between '>
-      <h2 className='text-center text-[24px] font-[600] text-[#000000]' >Choose the dermatologist-developed routine for your unique skin</h2>
+      <h2 data-aos="fade-right" className='text-center text-[24px] font-[600] text-[#000000]' >Choose the dermatologist-developed routine for your unique skin</h2>
       <button className="bg-[#E10983] w-[85px] h-[40px] rounded-[100px]  text-[#FFFFFF]  text-[16px] font-[500] ">View All</button>
       </div>
       <div className='w-full grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mt-10'>

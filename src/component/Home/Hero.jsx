@@ -16,7 +16,7 @@ const Hero = ({ setAppointmentModal ,setStep}) => {
 
   return (
     <main className="w-full  flex hero h-[90vh] ">
-      <div className=" w-[80%] flex flex-col gap-5  text-white horizontal-padding pt-32">
+      <div data-aos="fade-right" className=" w-[80%] flex flex-col gap-5  text-white horizontal-padding pt-32">
         <h2 className="w-full text-2xl lg:text-[40px] font-bold xl:leading-[50px]">
           Your Support Can Save Lives Through Early Cancer Detection
         </h2>

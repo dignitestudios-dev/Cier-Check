@@ -3,7 +3,7 @@ import React from "react";
 const Helping = () => {
   return (
     <div className={` w-full horizontal-padding gap-x-10 py-10 lg:py-20 helping-bg  `}>
-      <div className="w-[80%] flex flex-col  gap-4 pt-12 lg:pt-8">
+      <div data-aos="fade-right" className="w-[80%] flex flex-col  gap-4 pt-12 lg:pt-8">
         <h2 className="text-[24px] font-[600] text-[#000000]">
           Helping Save Lives One Test At A Time
         </h2>

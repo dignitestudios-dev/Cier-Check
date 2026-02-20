@@ -79,10 +79,10 @@ const Reviews = () => {
     <div className={`w-full horizontal-padding py-16`}>
       <div className="w-full ">
         <div className=" pb-10  flex items-center justify-between">
-          <h2 className=" w-full flex  section-heading">
+          <h2 data-aos="fade-right" className=" w-full flex  section-heading">
           What people say about CIRCheck
           </h2>
-          <div className="flex gap-4">
+          <div data-aos="fade-left" className="flex gap-4">
             <button
               onClick={handlePrev}
               className=" flex relative items-center justify-center w-12 h-12 rounded-full bg-[#E9E9E96B] text-white shadow-md hover:scale-110 transition group hover:bg-[#FFCBE970] "

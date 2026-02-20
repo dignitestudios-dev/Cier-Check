@@ -57,7 +57,7 @@ const Aware = [
     <div
       className={`w-full flex flex-col  gap-6 py-12 lg:py-20 horizontal-padding `}
     >
-      <h2
+      <h2 data-aos="fade-right"
         className="section-heading"
       >
         Empowering People to Become Aware
