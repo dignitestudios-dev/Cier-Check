@@ -16,9 +16,9 @@ const HeroGlossary = () => {
             
                 
                     <div className='w-full h-[500px] Cancer-Glossary-bg horizontal-padding flex flex-col justify-center gap-3 bg-[#F460910A]'>
-                        <h2 className='text-[40px] font-bold text-[#FFFFFF]'>Glossary of Solutions – Define, Learn, Apply</h2>
-                        <p className='text-[#FFFFFF] text-[16px] font-[400]'>Explore our complete glossary of terms, organized from A to Z. Find clear explanations <br /> and solutions that help you understand and define exactly what you need.</p>
-                        <div className=' w-[400px] h-[60px] rounded-[30px] px-3  text-[#FFFFFF] flex items-center gap-2 bg-[#FFCBE9]'>
+                        <h2 data-aos="fade-right" className='text-[40px] font-bold text-[#FFFFFF]'>Glossary of Solutions – Define, Learn, Apply</h2>
+                        <p data-aos="fade-right" className='text-[#FFFFFF] text-[16px] font-[400]'>Explore our complete glossary of terms, organized from A to Z. Find clear explanations <br /> and solutions that help you understand and define exactly what you need.</p>
+                        <div data-aos="fade-right" className=' w-[400px] h-[60px] rounded-[30px] px-3  text-[#FFFFFF] flex items-center gap-2 bg-[#FFCBE9]'>
                         <CiSearch className='text-[#CF1D67] w-[24px] h-[24px]' />
                      <input type="text" placeholder='Search'  className='  text-[16px] font-[400] bg-transparent placeholder:text-[#CF1D67] ' />
                         </div>

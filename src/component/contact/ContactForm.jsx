@@ -76,7 +76,7 @@ const ContactForm = () => {
             <h2 data-aos="fade-right" className="text-4xl md:text-6xl xl:text-6xl font-bold text-white">
               Contact Us
             </h2>
-            <p className="text-lg text-white">
+            <p data-aos="fade-right" className="text-lg text-white">
               Kindly reach us to get the fastest response and treatment.
             </p>
           </div>

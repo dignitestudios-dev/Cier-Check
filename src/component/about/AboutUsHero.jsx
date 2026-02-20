@@ -5,10 +5,10 @@ const AboutUsHero = () => {
     <div className={` w-full    `}>
       <div className="w-full h-[80vh] hero flex flex-col justify-center  horizontal-padding">
         {" "}
-        <h2 className="w-full text-2xl lg:text-[40px] font-bold xl:leading-[50px] text-white">
+        <h2 data-aos="fade-right" className="w-full text-2xl lg:text-[40px] font-bold xl:leading-[50px] text-white">
           About Us
         </h2>
-        <p className="text-[16px] font-[400] text-[#181818B2] w-[60%] pt-5 text-white">
+        <p data-aos="fade-right" className="text-[16px] font-[400] text-[#181818B2] w-[60%] pt-5 text-white">
           CierCheck was born out of a simple but powerful belief: early
           detection saves lives. Around the world, millions of people lose their
           lives to cancer each year, often because it is detected too late. For
@@ -16,7 +16,7 @@ const AboutUsHero = () => {
           know it doesn’t have to be this way.
         </p>
       </div>
-      <div className="w flex flex-col  gap-4  helping-bg horizontal-padding py-10 lg:py-20 ">
+      <div data-aos="fade-right" className="w flex flex-col  gap-4  helping-bg horizontal-padding py-10 lg:py-20 ">
         <p className="text-[16px] font-[400] text-[#181818B2]">
           {" "}
           CierCheck was born out of a simple but powerful belief: early
