@@ -74,8 +74,8 @@ const Footer = () => {
               className="outline-none px-2 w-[70%] rounded-full bg-[#FFCBE9] placeholder:text-[#000000B2] text-black"
               placeholder="Enter your email"
             />
-            <button className=" w-[25%] rounded-[100px] py-4 bg-white ">
-              submit 
+            <button className=" w-[25%] rounded-[100px] py-4 bg-white text-black">
+              Submit 
             </button>
           </div>
           <p className="text-[20px]">

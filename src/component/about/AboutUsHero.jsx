@@ -5,7 +5,7 @@ const AboutUsHero = () => {
     <div className={` w-full    `}>
       <div className="w-full h-[80vh] hero flex flex-col justify-center  horizontal-padding">
         {" "}
-        <h2 data-aos="fade-right" className="w-full text-2xl lg:text-[40px] font-bold xl:leading-[50px] text-white">
+        <h2 data-aos="fade-right" data-aos-delay="200" className="w-full text-2xl lg:text-[40px] font-bold xl:leading-[50px] text-white">
           About Us
         </h2>
         <p data-aos="fade-right" className="text-[16px] font-[400] text-[#181818B2] w-[60%] pt-5 text-white">

@@ -44,7 +44,7 @@ export default function ShopProduct() {
      
       <div className="w-full grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 ">
         {ProductsJson.map((item, i) => (
-          <div className="bg-[#ffffff] p-3 rounded-3xl " key={i}>
+          <div data-aos="fade-up" data-aos-delay={i * 50} className="bg-[#ffffff] p-3 rounded-3xl " key={i}>
             <div className="relative   ">
               <img src={item.image} alt="" className="" />
               <div className="absolute top-3 right-4 bg-white flex items-center justify-center gap-1 w-[41px] h-[27px] rounded-[100px] ">

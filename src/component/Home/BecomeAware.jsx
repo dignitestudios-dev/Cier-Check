@@ -68,6 +68,8 @@ const Aware = [
         {
           Aware.map((item, i) => (
             <div
+            data-aos="fade-up"
+            data-aos-delay={i * 100}
             className={`
               group relative mb-14 flex flex-col items-center justify-center 
               gap-4 rounded-3xl bg-white px-10 py-16 text-center transition 

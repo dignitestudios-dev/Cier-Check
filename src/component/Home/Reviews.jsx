@@ -133,7 +133,7 @@ const Reviews = () => {
           }}
         >
           {ReviewsJson.map((review, index) => (
-            <SwiperSlide key={index} className=" px-4 py-2 relative">
+            <SwiperSlide data-aos="fade-left" data-aos-delay={index * 100} key={index} className=" px-4 py-2 relative">
               <div className="w-[409px] h-[200px] new-gradient-btn -z-10 absolute -top-0 left-1 rounded-[24px]" />
               <div
                 className={` w-[400px] h-[210px] space-y-3 bg-white p-4 rounded-[24px]`}
